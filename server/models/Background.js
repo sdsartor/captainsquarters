@@ -1,5 +1,9 @@
 const backgroundChoice = {
 
+const backgroundSchema =  new Schema (
+    {
+
+ main
     biomorph: {
         statMods: { 
             health: 1, 
