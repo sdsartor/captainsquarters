@@ -1,4 +1,4 @@
-// Import Schema, Model "require Mongoose" ??
+const { Schema, model } = require('mongoose');
 import { number } from "prop-types";
 import {FirstMate} from "./FirstMate";
 

@@ -1,4 +1,4 @@
-// Import Schema, Model "require Mongoose" ??
+const { Schema, model } = require('mongoose');
 import {FirstMate} from "./FirstMate";
 
 const captainSchema = new Schema ({
