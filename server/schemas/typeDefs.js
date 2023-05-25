@@ -45,7 +45,7 @@ const typeDefs = gql`
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
         login(username: String!, password: String!): Auth
-        createCaptain: Captain
+        createCaptain(name: String!, level: Number!, move: Number!, fight: Number!, shoot: Number!, armor: Number!, will: Number!, health: Number!, gear: Array, slots: Number, background: [Background], firstMate: [FirstMate], crewList: [Soldiers])
         deleteCaptain(captainId: ID!): Captain
         updateCaptain(captainId: ID!): Captian
 

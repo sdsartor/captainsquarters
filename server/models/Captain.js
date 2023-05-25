@@ -45,10 +45,12 @@ const captainSchema = new Schema ({
         type: Number,
         required: false,
     },
-    background: {
-        type: String,
-        required: true,
-    },
+    background: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Background'
+      },
+    ],
     firstMate: [
       {
         type: Schema.Types.ObjectId,
