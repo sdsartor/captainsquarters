@@ -1,7 +1,8 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const characterSchema = require('./Character');
+const captainSchema = require('./Captain');
+
 
 const userSchema = new Schema(
 {
@@ -21,7 +22,7 @@ password: {
     required: true,
 },
 
-character: [characterSchema],
+Captain: [captainSchema],
 },
 
 {
