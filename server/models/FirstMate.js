@@ -11,7 +11,7 @@ const firstMateSchema = new Schema (
         specialty: {
        type: String
         }
-},
+        },
         {
             level: {
                 type: Number
