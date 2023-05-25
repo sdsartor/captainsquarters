@@ -1,9 +1,7 @@
-const backgroundChoice = {
+const { Schema, model } = require('mongoose');
 
 const backgroundSchema =  new Schema (
     {
-
- main
     biomorph: {
         statMods: { 
             health: 1, 
@@ -151,5 +149,10 @@ const backgroundSchema =  new Schema (
             "Target Designation",
         ],
     },
-};
+}
+)
+
+const Background = model('Background', backgroundSchema);
+
+module.exports = Background;
 
