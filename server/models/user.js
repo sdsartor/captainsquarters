@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 
 const captainSchema = require('./Captain');
 
+
 const userSchema = new Schema(
 {
 username: {
