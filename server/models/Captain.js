@@ -70,4 +70,6 @@ const captainSchema = new Schema ({
 
 
 
+const Captain = model('Captain', captainSchema);
+
 module.exports = Captain;
