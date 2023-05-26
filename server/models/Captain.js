@@ -1,6 +1,5 @@
 const { Schema, model } = require('mongoose');
-import { number } from "prop-types";
-import {FirstMate} from "./FirstMate";
+
 
 const captainSchema = new Schema ({
     name: {
