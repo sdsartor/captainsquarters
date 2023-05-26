@@ -16,7 +16,7 @@ const crewSchema =  new Schema ({
     }
 )    
 
-const CrewChoices = model('CrewChoices', crewSchema);
+const CrewChoice = model('CrewChoices', crewSchema);
 
-module.exports = CrewChoices;
+module.exports = CrewChoice;
 
