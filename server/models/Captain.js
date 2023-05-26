@@ -61,9 +61,6 @@ const captainSchema = new Schema ({
       {
         type: Schema.Types.ObjectId,
         ref: 'CrewChoice'
-      },
-      {
-        Captain: [captainSchema],
       }
     ]
   });

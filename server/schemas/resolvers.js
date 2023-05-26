@@ -35,7 +35,17 @@ const resolvers = {
             return {user, token };
         },
 
-        createCaptain: async (parent, { })
+        createCaptain: async (parent, { Captain }, context) => {
+           console.log(context);
+           if (context.user) {
+            const captain = new User({ Captain });
+
+            await User.findByIdAndUpdate(context.user.id, { $push: { captain: captain},
+            });
+
+            return captain;
+           }
+        }
 
     }
 }
