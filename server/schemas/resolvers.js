@@ -35,7 +35,46 @@ const resolvers = {
             return {user, token };
         },
 
-        createCaptain: async (parent, { })
+        createCaptain: async (parent, { Captain }, context) => {
+           if (context.user) {
+          return User.findOneAndUpdate(
+            {
+                $addToSet: { captain: captain },
+            },
+            {
+                new: true,
+                runValidators: true,
+            }
+          );
+
+            await User.findByIdAndUpdate(context.user.id, { $push: { Captain: Captain },
+            });
+
+            return captain;
+           }
+        },
+
+    deleteCaptain: async (parent, { captainId }, context) => {
+        if (context.user) {
+            const updatedUser = await User.findOneAndDelete({
+                _id: captainId,
+                $pull: context.user.username,
+                new: true,
+            });
+            await User.findOneAndUpdate(
+                { _id: context.user._id},
+                { $pull: { Captain: { captainId: captainId} }},
+                { new: true }
+            );
+            return updatedUser;
+        }
+    },
+    updateCaptain: async (parent, { captainId}, context ) => {
+        return Captain.findByIdAndUpdate(
+            id,
+            { new: true }
+        );
+    }
 
     }
-}
+};
