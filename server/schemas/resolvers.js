@@ -10,7 +10,7 @@ const resolvers = {
                 return User.findOne({ _id: context.user._id });
             }
             throw AuthenticationError('Please log in before moving on')
-        }
+        },
     },
 
     Mutation: {
@@ -32,7 +32,7 @@ const resolvers = {
                 throw AuthenticationError('The password or username is incorrect, please try again.');
             }
             const token = signToken(user);
-            return user{user, token };
+            return {user, token };
         },
 
         createCaptain: async (parent, { Captain }, context) => {
