@@ -32,7 +32,7 @@ const resolvers = {
                 throw AuthenticationError('The password or username is incorrect, please try again.');
             }
             const token = signToken(user);
-            return user{user, token };
+            return { token, user };
         },
 
         createCaptain: async (parent, { Captain }, context) => {

@@ -10,23 +10,12 @@ const typeDefs = gql`
     }
 
     type Captain {
-        _id: ID
-        stats: {
-            name: String
-            type: String
-            level: Number
-            move: Number
-            fight: Number
-            shoot: Number
-            armor: Number
-            will: Number
-            health: Number
-            gear: []
-            slots: Number
-            background: [Background]
-            firstMate: [FirstMate]
-            crewList: [CrewChoice]
-        }
+        name: String
+        background: [Background]
+        stats: Object
+        powers: [Background]
+        firstMate: [FirstMate]
+        crewMembers: [CrewChoice]
     }
 
     type Auth {
@@ -35,7 +24,7 @@ const typeDefs = gql`
     }
 
     type Query {
-        user: [User]
+        users: [User]
         user(username: String!): User
         captains(name: String!): [Captain]
         captain(captainId: ID!): Captain
@@ -43,11 +32,11 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addUser(username: String!, email: String!, password: String!): Auth
         login(username: String!, password: String!): Auth
-        createCaptain(name: String!, level: Number!, move: Number!, fight: Number!, shoot: Number!, armor: Number!, will: Number!, health: Number!, gear: Array, slots: Number, background: [Background], firstMate: [FirstMate], crewList: [Soldiers])
+        addUser(username: String!, email: String!, password: String!): Auth
+        createCaptain(name: String!, background: [Background], stats: Object, powers: [Background], firstMate: [FirstMate], crewMembers: [CrewChoice])
         deleteCaptain(captainId: ID!): Captain
-        updateCaptain(captainId: ID!): Captian
+        updateCaptain(captainId: ID!): Captain
 
     }
 `;

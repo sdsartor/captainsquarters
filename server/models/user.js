@@ -23,7 +23,7 @@ password: {
     required: true,
 },
 
-captain: [
+captains: [
     {
         type: Schema.Types.ObjectId,
         ref: 'Captain',
