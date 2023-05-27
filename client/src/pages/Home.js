@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import { useQuery } from '@apollo/client';
 
 // import { QUERY_CAPTAINS } from '../utils/queries';
@@ -10,7 +11,10 @@ const Home = () => {
   return (
     <main>
       <h1>Welcome to Captains Quarters!</h1>
-
+        <p1>Click on this button to create your Captain!</p1>
+        <Link to="/" className="btn btn-primary">
+        Create Captain
+      </Link>
     </main>
   );
 };

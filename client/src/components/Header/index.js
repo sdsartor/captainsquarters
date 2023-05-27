@@ -8,16 +8,17 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
+
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
+    <header className="bg-primary">
+      <div className="container header-container">
+        <div className="header-left">
           <Link className="text-light" to="/">
             <h1 className="m-0">Captains Quarters</h1>
           </Link>
           <p className="m-0">An easy start-up for Stargrave.</p>
         </div>
-        <div>
+        <div className="header-right">
           {Auth.loggedIn() ? (
             <>
               <Link className="btn btn-lg btn-info m-2" to="/me">
