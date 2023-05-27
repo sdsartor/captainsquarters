@@ -51,3 +51,4 @@ export const DELETE_CAPTAIN = gql`
         }
     }
 `;
+
