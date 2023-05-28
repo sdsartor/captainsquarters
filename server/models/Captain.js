@@ -12,14 +12,16 @@ const captainSchema = new Schema({
             ref: 'Background'
         },
     ],
-    stats: {
+    stats: [
+        {
         type: Object,
-    },
+        }
+    ],
     powers: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Background',
-            include: corePowers
+            ref: 'Background'
+            
         }
     ],
     firstMate: [

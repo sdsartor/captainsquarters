@@ -1,9 +1,10 @@
-const Captain  = require('./Captain');
-const FirstMate = require('./FirstMate');
-const Powers = require('./Powers');
 const User = require('./User');
-const CrewChoice = require('./CrewChoice');
+const Powers = require('./Powers');
 const Background = require('./Background');
+const FirstMate = require('./FirstMate');
+const CrewChoice = require('./CrewChoice');
 
-module.exports = { Captain, FirstMate, User, Powers, CrewChoice, Background };
+const Captain  = require('./Captain');
+
+module.exports = { User, Powers, Background, FirstMate, CrewChoice, Captain };
 
