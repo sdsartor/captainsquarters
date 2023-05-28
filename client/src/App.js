@@ -68,6 +68,10 @@ function App() {
                 path="/captains/:captainId"
                 element={<Captain />}
               />
+              <Route
+                path="/CaptCreation"
+                element={<CaptCreation />}
+              />
             </Routes>
           </div>
           <Footer />
