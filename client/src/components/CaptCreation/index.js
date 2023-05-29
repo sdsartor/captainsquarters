@@ -374,8 +374,11 @@ const addCorePowers = (event) => {
 const getPowersWithoutCorePowers = () => {
     let i
     let j
-    generalPowers = allPowers
-    
+    generalPowers = [] 
+    for (i=0; i<allPowers.length;i++){
+    generalPowers.push(allPowers[i])
+    }
+
     for (i = generalPowers.length - 1; i >= 0; i--) {
         for (j = 0; j < corePowers.length; j++) {
             if (generalPowers[i] === corePowers[j]) {
@@ -389,6 +392,7 @@ const getPowersWithoutCorePowers = () => {
 
 const captainChooseGeneralPowers = () => {
     let generalPowersDiv = document.getElementById('chooseGeneralPowers')
+    generalPowersDiv.textContent = ''
     let i
 
     //Creates p for div "Choose 5 Core Powers"
