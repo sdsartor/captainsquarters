@@ -73,3 +73,7 @@ footer {
   padding: 20px;
   margin-top: auto;
 }
+
+#potentialCrewMemberDiv{
+  border-radius: 25px;
+}

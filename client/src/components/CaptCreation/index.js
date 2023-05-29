@@ -325,7 +325,7 @@ const captainCorePowersFunc = () => {
     submitButton.setAttribute('type','submit')
     submitButton.textContent = 'Submit'
     corePowersDiv.append(submitButton)
-    submitButton.onclick = function () {addCorePowers()};
+    submitButton.onclick = function() {addCorePowers()};
 }
 //Logic to read choices and add chosen core powers to Captain
 const addCorePowers = (event) => {
