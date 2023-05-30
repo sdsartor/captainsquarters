@@ -19,7 +19,6 @@ const captainSchema = new Schema({
         {
             type: Schema.Types.ObjectId,
             ref: 'Background',
-            include: corePowers
         }
     ],
     firstMate: [
