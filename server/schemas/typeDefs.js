@@ -26,8 +26,8 @@ const typeDefs = gql`
     type Query {
         users: [User]
         user(username: String!): User
-        captains(name: String!): [Captain]
-        captain(captainId: ID!): Captain
+        captains(name: String): [Captain]
+        captain(captainId: ID): Captain
         me: User
     }
 
@@ -35,10 +35,12 @@ const typeDefs = gql`
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         createCaptain(name: String!, background: [Background], stats: Object, powers: [Background], firstMate: [FirstMate], crewMembers: [CrewChoice])
-        deleteCaptain(captainId: ID!): Captain
-        updateCaptain(captainId: ID!): Captain
+
 
     }
 `;
 
 module.exports = typeDefs;
+
+// deleteCaptain(captainId: ID!): Captain
+// updateCaptain(captainId: ID!): Captain

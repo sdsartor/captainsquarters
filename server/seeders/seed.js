@@ -1,25 +1,27 @@
 const db = require('../config/connection');
-const { Background, CrewChoice, Powers, User, FirstMate } = require('../models');
-const backgroundSeeds = require('./backgroundSeeds.json');
-const crewSeeds = require('./crewSeeds.json');
-const powerSeeds = require('./powerSeeds.json');
+const { User, Powers, Background, FirstMate, CrewChoice, Captain } = require('../models');
 const userSeeds = require('./userSeeds.json');
+const powerSeeds = require('./powerSeeds.json');
+const backgroundSeeds = require('./backgroundSeeds.json');
 const firstmateSeeds = require('./firstmateSeeds.json');
+const crewSeeds = require('./crewSeeds.json');
 
 
 db.once('open', async () => {
   try {
-    await Background.deleteMany({});
-    await CrewChoice.deleteMany({});
-    await Powers.deleteMany({});
     await User.deleteMany({});
+    await Powers.deleteMany({});
+    await Background.deleteMany({});
     await FirstMate.deleteMany({});
+    await CrewChoice.deleteMany({});
+    await Captain.deleteMany({});
 
-    await Background.create(backgroundSeeds);
-    await CrewChoice.create(crewSeeds);
-    await Powers.create(powerSeeds);
     await User.create(userSeeds);
+    await Powers.create(powerSeeds);
+    await Background.create(backgroundSeeds);
     await FirstMate.create(firstmateSeeds);
+    await CrewChoice.create(crewSeeds);
+    await Captain.create();
 
     console.log('all done!');
     process.exit(0);
