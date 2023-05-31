@@ -20,8 +20,10 @@ const captainSchema = new Schema({
     powers: [
         {
             type: Schema.Types.ObjectId,
+
             ref: 'Background'
             
+
         }
     ],
     firstMate: [
