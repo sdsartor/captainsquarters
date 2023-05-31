@@ -1,8 +1,13 @@
 [
     {
         "name": "Biomorph",
-        "statMods": {
-            "health": 1,
+        "stats": {
+            "move": 6,
+            "fight": 3,
+            "shoot": 2,
+            "armor": 9,
+            "will": 2,
+            "health": 17,
             "chooseTwo": ["Move", "Fight", "Shoot"]
             },
         "corePowers": [
@@ -19,8 +24,13 @@
     },
     {
         "name": "Cyborg",
-        "statMods": {
-            "health": 1,
+        "stats": {
+            "move": 6,
+            "fight": 3,
+            "shoot": 2,
+            "armor": 9,
+            "will": 2,
+            "health": 17,
             "chooseTwo": ["Move", "Fight", "Shoot"]
             },
         "corePowers": [
@@ -37,9 +47,13 @@
     },
     {
         "name": "Mystic",
-        "statMods": {
-            "health": 1,
-            "will": 2,
+        "stats": {
+            "move": 6,
+            "fight": 3,
+            "shoot": 2,
+            "armor": 9,
+            "will": 4,
+            "health": 17,
             "chooseOne": ["Move", "Fight", "Shoot"]
             },
         "corePowers": [
@@ -56,8 +70,13 @@
     },
     {
         "name": "Robotics Expert",
-        "statMods": {
-            "will": 1,
+        "stats": {
+            "move": 6,
+            "fight": 3,
+            "shoot": 2,
+            "armor": 9,
+            "will": 3,
+            "health": 16,
             "chooseTwo": ["Move", "Fight", "Shoot"]
             },
         "corePowers": [
@@ -74,9 +93,13 @@
     },
     {
         "name": "Rogue",
-        "statMods": {
-            "health": 1,
-            "will": 1,
+        "stats": {
+            "move": 6,
+            "fight": 3,
+            "shoot": 2,
+            "armor": 9,
+            "will": 3,
+            "health": 17,
             "chooseTwo": ["Move", "Fight", "Shoot"]
             },
         "corePowers": [
@@ -93,9 +116,13 @@
     },
     {
         "name": "Psionicist",
-        "statMods": {
-            "health": 1,
-            "will": 2,
+        "stats": {
+            "move": 6,
+            "fight": 3,
+            "shoot": 2,
+            "armor": 9,
+            "will": 4,
+            "health": 17,
             "chooseOne": ["Move", "Fight", "Shoot"]
             },
         "corePowers": [
@@ -112,8 +139,13 @@
     },
     {
         "name": "Tekker",
-        "statMods": {
-            "will": 2,
+        "stats": {
+            "move": 6,
+            "fight": 3,
+            "shoot": 2,
+            "armor": 9,
+            "will": 4,
+            "health": 16,
             "chooseTwo": ["Move", "Fight", "Shoot"]
             },
         "corePowers": [
@@ -130,9 +162,13 @@
     },
     {
         "name": "Veteran",
-        "statMods": {
-            "health": 1,
-            "fight": 1,
+        "stats": {
+            "move": 6,
+            "fight": 4,
+            "shoot": 2,
+            "armor": 9,
+            "will": 2,
+            "health": 17,
             "chooseOne": ["Move", "Fight", "Shoot"]
             },
         "corePowers": [

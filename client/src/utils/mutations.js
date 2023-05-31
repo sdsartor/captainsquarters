@@ -25,30 +25,27 @@ export const ADD_USER = gql`
 `;
 
 export const CREATE_CAPTAIN = gql`
-    mutation createCaptain($name: String!, $background: [Background], $stats: Object, $powers: [Background], $firstMate: [FirstMate], $crewMembers: [CrewChoice]) {
-        createCaptain(name: $name, background: $background, stats: $stats, powers: $powers, firstMate: $firstMate, crewMembers: $crewMembers) {
+    mutation createCaptain($name: String!, $background: [Background], $firstMate: [FirstMate], $crewMembers: [CrewChoice], $createdBy: [User]) {
+        createCaptain(name: $name, background: $background, firstMate: $firstMate, crewMembers: $crewMembers, createdBy: $createdBy) {
             _id
             name
             background
-            stats
-            powers
             firstMate
             crewMembers
+            createdby
         }
     }
 `;
 
-export const DELETE_CAPTAIN = gql`
-    mutation deleteCaptain($captainId: ID!) {
-        deleteCaptain(captainId: $ID) {
-            _id
-            name
-            background
-            stats
-            powers
-            firstMate
-            crewMembers
-        }
-    }
-`;
+// export const DELETE_CAPTAIN = gql`
+//     mutation deleteCaptain($captainId: ID!) {
+//         deleteCaptain(captainId: $ID) {
+//             _id
+//             name
+//             background
+//             firstMate
+//             crewMembers
+//         }
+//     }
+// `;
 
