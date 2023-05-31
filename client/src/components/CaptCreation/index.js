@@ -193,48 +193,82 @@ let i = 0
                 chooseTwoArr = []
             }
         }          
-        } 
+        }
+        
+        let chooseTwoDiv = document.getElementById('chooseTwoDiv')
+        let chooseOneDiv = document.getElementById('chooseOneDiv')
+        chooseTwoDiv.textContent =''
+        chooseOneDiv.textContent = ''
+
         //submitButton.disabled = true
         captainCorePowersFunc()
         getPowersWithoutCorePowers()
+        if (chooseOneArr.length > 0) {
+            captainChooseOneStatModsFunc()
+        }
+        if (chooseTwoArr.length > 0) {
+            captainChooseTwoStatModsFunc()
+        }
         
-    }
+    }   
 
 //Logic for a Captain with one Stat Mod Choice    
-const captainChooseOneStatModsFunc = () => {
 
-    //Grabbing Elements/Declaring Variables
-    let statModArr = document.getElementsByName('chooseOne')
-    let submitButton = document.getElementById('captainChooseOneStatModsSubmitButton')
-    let i
-    
-    //Checks if a radio button is checked and increase stat dependent on choice
-    for (i=0;i < statModArr.length; i++) {    
-        if (statModArr[i].checked === true){
-            let choice = statModArr[i]
-            if (choice.value === "Move") {
-                NewCaptain.move += 1
-            }
-            if (choice.value === "Fight") {
-                NewCaptain.fight += 1
-            }
-            if (choice.value === "Shoot") {
-                NewCaptain.shoot += 1
-            }
-        }
-    }
-    //submitButton.disabled=true
-    console.log(NewCaptain)
-    return NewCaptain
-}
 //Logic for a Captain with two Stat Mod Choices
 const captainChooseTwoStatModsFunc = () =>{
+
+    let i
     
     //Grabbing Elements
-    let statModArr = document.getElementsByName('chooseTwo')
-    let submitButton = document.getElementById('captainChooseTwoStatModsSubmitButton')
+    let chooseTwoDiv = document.getElementById('chooseTwoDiv')
+    chooseTwoDiv.textContent = ''
+    let statModArr = chooseTwoArr
+    console.log(statModArr)
+    //let submitButton = document.getElementById('captainChooseTwoStatModsSubmitButton')
     
     //Creates a new Captain Object based on the original one for backtracking purposes
+
+    let paragraph = document.createElement('p')
+    paragraph.textContent='Choose 2 Stats to improve' 
+    chooseTwoDiv.append(paragraph)
+
+    for (i=0;i<statModArr.length;i++){
+        let chooseTwoCheckboxes = document.createElement('input')
+        let chooseTwoCheckboxesLabels = document.createElement('label')
+        let lineBreak = document.createElement('br')
+
+        //Creates Checkboxes based on the powers of the background chosen
+        chooseTwoCheckboxes.value = statModArr[i]
+        chooseTwoCheckboxes.setAttribute('type','checkbox');
+        chooseTwoCheckboxes.name = 'chooseTwoCheckboxes'
+        chooseTwoCheckboxes.className = 'chooseTwoCheckboxes'
+
+        //Creates labels for the Checkboxes
+        chooseTwoCheckboxesLabels.name = 'chooseTwoCheckboxesLabels'
+        chooseTwoCheckboxesLabels.htmlFor = 'chooseTwoCheckboxes'
+        chooseTwoCheckboxesLabels.className = 'chooseTwoCheckboxesLabels'
+        chooseTwoCheckboxesLabels.textContent = statModArr[i]
+        
+        //Appends the Checkbox and Label along with a line break
+        chooseTwoDiv.append(chooseTwoCheckboxes)
+        chooseTwoDiv.append(chooseTwoCheckboxesLabels)
+        chooseTwoDiv.append(lineBreak)
+    }
+        // Submit Button
+    let submitButton = document.createElement('button')
+    submitButton.setAttribute('type','submit')
+    submitButton.textContent = 'Submit'
+    chooseTwoDiv.append(submitButton)
+    submitButton.onclick = function() {chooseTwoGetStatChoices()};
+    
+
+    
+}
+
+const chooseTwoGetStatChoices = () => {
+
+    let chooseTwoCheckboxes = document.getElementsByClassName('chooseTwoCheckboxes')
+    
     NewCaptain = {
         name: Captain.name,
         level: Captain.level,
@@ -247,33 +281,34 @@ const captainChooseTwoStatModsFunc = () =>{
         background: Captain.background
     }
 
-    //Checks for checked boxes and creates an array based on choices
-    let choiceArr=[]
+    
+    let choiceArr = []
     let i
+    
 
-        //Checks for Choices and increases stats based on what choices are made
-        for (i=0;i < statModArr.length; i++) {    
-            if (statModArr[i].checked === true){
-                choiceArr.push(statModArr[i].value)
-            }
+    for (i=0;i < chooseTwoCheckboxes.length; i++) {    
+        if (chooseTwoCheckboxes[i].checked === true){
+            choiceArr.push(chooseTwoCheckboxes[i].value)
+            console.log(choiceArr)
         }
-        if (choiceArr.length === 2) {
-            if (choiceArr[0]==="Move" || choiceArr[1]==='Move'){
-                NewCaptain.move += 1
-            }
-            if (choiceArr[0]==="Fight" || choiceArr[1]==='Fight'){
-                NewCaptain.fight += 1
-            }
-            if (choiceArr[0]==='Shoot' || choiceArr[1]==='Shoot'){
-                NewCaptain.shoot += 1
-            }
-            if (choiceArr[0]==='Health' || choiceArr[1]==='Health'){
-                NewCaptain.health += 1
-            }
+    }
+    if (choiceArr.length === 2) {
+        if (choiceArr[0]==="Move" || choiceArr[1]==='Move'){
+            NewCaptain.move += 1
         }
-        else 
-        console.log("Please Select Two and resubmit")    
-        //submitButton.disabled=true
+        if (choiceArr[0]==="Fight" || choiceArr[1]==='Fight'){
+            NewCaptain.fight += 1
+        }
+        if (choiceArr[0]==='Shoot' || choiceArr[1]==='Shoot'){
+            NewCaptain.shoot += 1
+        }
+        if (choiceArr[0]==='Health' || choiceArr[1]==='Health'){
+            NewCaptain.health += 1
+        }
+    }
+    else 
+    console.log("Please Select Two and resubmit")
+
     console.log(NewCaptain)
     console.log(Captain) 
     return NewCaptain
@@ -289,7 +324,6 @@ const captainCorePowersFunc = () => {
     
     //Variable Declaration for For Loops
     let i=0
-    
     
     //Creates p for div "Choose 5 Core Powers"
     let paragraph = document.createElement('p')
@@ -376,7 +410,7 @@ const getPowersWithoutCorePowers = () => {
     let j
     generalPowers = [] 
     for (i=0; i<allPowers.length;i++){
-    generalPowers.push(allPowers[i])
+        generalPowers.push(allPowers[i])
     }
 
     for (i = generalPowers.length - 1; i >= 0; i--) {
@@ -474,6 +508,97 @@ const addGeneralPowers = () => {
     console.log(CaptainWithGeneralPowers)    
 }
 
+const captainChooseOneStatModsFunc = () =>{
+
+    let i
+    
+    //Grabbing Elements
+    let chooseOneDiv = document.getElementById('chooseOneDiv')
+    chooseOneDiv.textContent = ''
+    let statModArr = chooseOneArr
+    console.log(statModArr)
+    //let submitButton = document.getElementById('captainChooseTwoStatModsSubmitButton')
+    
+    //Creates a new Captain Object based on the original one for backtracking purposes
+
+    let paragraph = document.createElement('p')
+    paragraph.textContent='Choose 1 Stat to improve' 
+    chooseOneDiv.append(paragraph)
+
+    for (i=0;i<statModArr.length;i++){
+        let chooseOneRadio = document.createElement('input')
+        let chooseOneRadioLabels = document.createElement('label')
+        let lineBreak = document.createElement('br')
+
+        //Creates Checkboxes based on the powers of the background chosen
+        chooseOneRadio.value = statModArr[i]
+        chooseOneRadio.setAttribute('type','radio');
+        chooseOneRadio.name = 'chooseOneRadio'
+        chooseOneRadio.className = 'chooseOneRadio'
+
+        //Creates labels for the Checkboxes
+        chooseOneRadioLabels.name = 'chooseOneRadioLabels'
+        chooseOneRadioLabels.htmlFor = 'chooseOneRadio'
+        chooseOneRadioLabels.className = 'chooseOneRadioLabels'
+        chooseOneRadioLabels.textContent = statModArr[i]
+        
+        //Appends the Checkbox and Label along with a line break
+        chooseOneDiv.append(chooseOneRadio)
+        chooseOneDiv.append(chooseOneRadioLabels)
+        chooseOneDiv.append(lineBreak)
+    }
+        // Submit Button
+    let submitButton = document.createElement('button')
+    submitButton.setAttribute('type','submit')
+    submitButton.textContent = 'Submit'
+    chooseOneDiv.append(submitButton)
+    submitButton.onclick = function() {chooseOneGetStatChoice()};
+    
+
+    
+}
+
+const chooseOneGetStatChoice = () => {
+
+    let statModArr = document.getElementsByClassName('chooseOneRadio')
+    console.log(statModArr)
+    NewCaptain = {
+        name: Captain.name,
+        level: Captain.level,
+        move: Captain.move,
+        fight: Captain.fight,
+        shoot: Captain.shoot,
+        armor: Captain.armor,
+        will: Captain.will,
+        health: Captain.health,
+        background: Captain.background
+    }
+
+    
+    let choiceArr = []
+    let i
+    
+    for (i=0; i < statModArr.length; i++) {    
+        if (statModArr[i].checked === true){
+            let choice = statModArr[i]
+            console.log(choice)
+            if (choice.value === "Move") {
+                NewCaptain.move += 1
+            }
+            if (choice.value === "Fight") {
+                NewCaptain.fight += 1
+            }
+            if (choice.value === "Shoot") {
+                NewCaptain.shoot += 1
+            }
+        }
+    }
+
+    console.log(NewCaptain)
+    console.log(Captain) 
+    return NewCaptain
+}
+
 //Function to create CaptainCreation Page
 const CaptCreation = () => {
   return (
@@ -491,6 +616,7 @@ const CaptCreation = () => {
                 Will: {Captain.will} <br/>
                 Health: {Captain.health} <br/>
                 Core Powers: {Captain.corePowers} <br/>
+                General Powers: {Captain.generalPowers} <br/>
             </p>
         </div>
 
@@ -531,67 +657,12 @@ const CaptCreation = () => {
             </button>
         </div>
         
-        <div  id="chooseOneDiv">
-            <p>Choose One: </p>
-            <input value="Move" type='radio' name="chooseOne"></input> 
-                <label htmlFor ='chooseOne'>Move</label><br/>
-            <input value="Fight" type='radio' name="chooseOne"></input> 
-                <label htmlFor ='chooseOne'>Fight</label><br/>
-            <input value="Shoot" type='radio' name="chooseOne"></input> 
-                <label htmlFor ='chooseOne'>Shoot</label><br/>
-            <button
-            id = 'captainChooseOneStatModsSubmitButton'
-            type = 'submit'
-            onClick = {captainChooseOneStatModsFunc}
-            >Submit 
-            </button>
-        </div>    
+        <div  id="chooseOneDiv"></div>    
         
-        <div  id="chooseTwoDiv">    
-            <p>Choose Two: </p>
-            <input value="Move" type='checkbox' name="chooseTwo" ></input> 
-                <label htmlFor ='chooseTwo'>Move</label><br/>
-            <input value="Fight" type='checkbox' name="chooseTwo"></input> 
-                <label htmlFor ='chooseTwo'>Fight</label><br/>
-            <input value="Shoot" type='checkbox' name="chooseTwo"></input> 
-                <label htmlFor ='chooseTwo'>Shoot</label><br/>
-            <input value="Health" type='checkbox' name="chooseTwo"></input> 
-                <label htmlFor ='chooseTwo'>Health</label><br/>
-            <button
-            id = 'captainChooseTwoStatModsSubmitButton'
-            type = 'submit'
-            onClick = {captainChooseTwoStatModsFunc}
-            >Submit 
-            </button>
-        </div>
+        <div  id="chooseTwoDiv"></div>
         
-        <div id='chooseCorePowers'>
-            {/* <p>Choose 5 Powers:</p>
-            <input type="checkbox" name='corePowers'></input>
-            <label htmlFor='corePowers'>{corePowers[0]}</label>
-            <input type="checkbox" name='corePowers'></input>
-            <label htmlFor='corePowers'>{corePowers[1]}</label>
-            <input type="checkbox" name='corePowers'></input>
-            <label htmlFor='corePowers'>{corePowers[2]}</label>
-            <input type="checkbox" name='corePowers'></input>
-            <label htmlFor='corePowers'>{corePowers[3]}</label>
-            <input type="checkbox" name='corePowers'></input>
-            <label htmlFor='corePowers'>{corePowers[4]}</label>
-            <input type="checkbox" name='corePowers'></input>
-            <label htmlFor='corePowers'>{corePowers[5]}</label>
-            <input type="checkbox" name='corePowers'></input>
-            <label htmlFor='corePowers'>{corePowers[6]}</label>
-            <input type="checkbox" name='corePowers'></input>
-            <label htmlFor='corePowers'>{corePowers[7]}</label> */}
-            {/* <button
-            id = 'captainChooseCorePowers'
-            type = 'submit'
-            onClick = {addCorePowers}
-            >Submit 
-            </button> */}
-        </div>
-        <div id='chooseGeneralPowers'>
-        </div>                
+        <div id='chooseCorePowers'></div>
+        <div id='chooseGeneralPowers'></div>                
     </main>
   );
   };
