@@ -5,6 +5,7 @@ const powerSeeds = require('./powerSeeds.json');
 const backgroundSeeds = require('./backgroundSeeds.json');
 const firstmateSeeds = require('./firstmateSeeds.json');
 const crewSeeds = require('./crewSeeds.json');
+// const captainSeeds = require('./captainSeeds.json');
 
 
 db.once('open', async () => {

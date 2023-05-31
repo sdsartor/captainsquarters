@@ -12,18 +12,6 @@ const captainSchema = new Schema({
             ref: 'Background'
         },
     ],
-    stats: [
-        {
-        type: Object,
-        }
-    ],
-    powers: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Background'
-            
-        }
-    ],
     firstMate: [
         {
             type: Schema.Types.ObjectId,
@@ -34,6 +22,12 @@ const captainSchema = new Schema({
         {
             type: Schema.Types.ObjectId,
             ref: 'CrewChoice'
+        }
+    ],
+    createdBy: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
         }
     ]
 });
