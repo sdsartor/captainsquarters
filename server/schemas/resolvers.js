@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Captain, Background, FirstMate, CrewChoice } = require('../models');
+const { User, Captain } = require('../models');
 const { signToken } = require('../utils/auth');
 
 
@@ -67,31 +67,31 @@ const resolvers = {
            }
         },
 
-    // deleteCaptain: async (parent, { captainId }, context) => {
-    //     if (context.user) {
-    //         const updatedUser = await User.findOneAndDelete({
-    //             _id: captainId,
-    //             $pull: context.user.username,
-    //             new: true,
-    //         });
-    //         await User.findOneAndUpdate(
-    //             { _id: context.user._id},
-    //             { $pull: { captain: { captainId: captainId} }},
-    //             { new: true }
-    //         );
-    //         return updatedUser;
-    //     }
-    // },
-    // updateCaptain: async (parent, { captainId }, context ) => {
-    //     if (context.user) {
-    //     const captain = await Captain.findByIdAndUpdate(
-    //         id,
-    //         { new: true }
-    //     );
-    //     return captain;
-    // }
+    deleteCaptain: async (parent, { captainId }, context) => {
+        if (context.user) {
+            const updatedUser = await User.findOneAndDelete({
+                _id: captainId,
+                $pull: context.user.username,
+                new: true,
+            });
+            await User.findOneAndUpdate(
+                { _id: context.user._id},
+                { $pull: { captain: { captainId: captainId} }},
+                { new: true }
+            );
+            return updatedUser;
+        }
+    },
+    updateCaptain: async (parent, { captainId }, context ) => {
+        if (context.user) {
+        const captain = await Captain.findByIdAndUpdate(
+            id,
+            { new: true }
+        );
+        return captain;
+    }
 
-    // }
+    }
     }
 };
 
@@ -113,3 +113,8 @@ module.exports = resolvers;
 //         )
 //     }
 // }
+
+
+
+
+
