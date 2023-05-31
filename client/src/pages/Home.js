@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <main>
       <h1>Welcome to Captains Quarters!</h1>
-        <p1>Click on this button to create your Captain!</p1>
+        <p>Click on this button to create your Captain!</p>
         <Link to="/" className="btn btn-primary">
         Create Captain
       </Link>
