@@ -12,6 +12,7 @@ const captainSchema = new Schema({
             ref: 'Background'
         },
     ],
+
     firstMate: [
         {
             type: Schema.Types.ObjectId,
