@@ -1,10 +1,10 @@
 const { Schema, model } = require('mongoose');
 
-const backgroundSchema =  new Schema({
+const backgroundSchema =  new Schema ({
         name: {
             type: String,
         },
-        statMods: {
+        stats: {
             type: Object,
         },
         corePowers: {

@@ -12,8 +12,6 @@ const typeDefs = gql`
     type Captain {
         name: String
         background: [Background]
-        stats: Object
-        powers: [Background]
         firstMate: [FirstMate]
         crewMembers: [CrewChoice]
     }
@@ -34,7 +32,7 @@ const typeDefs = gql`
     type Mutation {
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        createCaptain(name: String!, background: [Background], stats: Object, powers: [Background], firstMate: [FirstMate], crewMembers: [CrewChoice])
+        createCaptain(name: String!, background: [Background], firstMate: [FirstMate], crewMembers: [CrewChoice]): Auth
 
 
     }
