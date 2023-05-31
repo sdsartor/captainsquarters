@@ -35,7 +35,7 @@ deleteCaptain(name: String!): Auth
 updateCaptain(name: String!): Auth
     }
 `;
-
+// Credit to Dillon!!!!
 module.exports = typeDefs;
 
 // deleteCaptain(captainId: ID!): Captain
