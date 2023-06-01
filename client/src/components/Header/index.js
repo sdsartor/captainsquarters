@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <header className="bg-primary">
-      <div className="container header-container">
+      <div className="ui header">
         <div className="header-left">
           <Link className="text-light" to="/">
             <h1 className="m-0">Captains Quarters</h1>
@@ -29,10 +29,10 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <Link className="btn btn-lg btn-info m-2 ui primary button" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="btn btn-lg btn-light m-2 ui primary button" to="/signup">
                 Signup
               </Link>
             </>
