@@ -83,4 +83,8 @@ footer {
   /* width: 100%; */
   justify-content: center;
   align-items: center;
+  height: 100%;
+  background-blend-mode:overlay;
+  background-color: rgb(223, 117, 105);
+
 }
