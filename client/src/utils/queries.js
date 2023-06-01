@@ -38,12 +38,8 @@ export const QUERY_SINGLE_CAPTAIN = gql`
             name
             background {
                 name
-                statMods
+                stats
                 corePowers
-            }
-            stats
-            powers {
-                name
             }
             firstMate {
                 name

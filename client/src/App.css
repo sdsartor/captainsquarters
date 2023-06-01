@@ -77,3 +77,10 @@ footer {
 #potentialCrewMemberDiv{
   border-radius: 25px;
 }
+
+.bg-photo {
+  background-image: url(../../assets/home-background.jpg);
+  /* width: 100%; */
+  justify-content: center;
+  align-items: center;
+}

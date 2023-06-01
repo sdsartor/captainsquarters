@@ -9,7 +9,7 @@ const Home = () => {
 //   const captains = data?.captains || [];
 
   return (
-    <main>
+    <main className="bg-photo">
       <h1>Welcome to Captains Quarters!</h1>
         <p>Click on this button to create your Captain!</p>
         <Link to="/" className="btn btn-primary">

@@ -1,4 +1,8 @@
 const { Schema, model } = require('mongoose');
+const User  = require('./User');
+const Background = require('./Background');
+const FirstMate = require('./FirstMate');
+const CrewChoice = require('./CrewChoice');
 
 const captainSchema = new Schema({
     name: {

@@ -15,16 +15,6 @@
      {$addtoSet} Captain.firstMate
      return firstMateChoice
 
-     fetch request/get findAll(FirstMates)
-     let firstMateChoice(e) = event.target
-     {$addtoSet} Captain.firstMate
-     return firstMateChoice
-
-     fetch request/get findAll(FirstMates)
-     let firstMateChoice(e) = event.target
-     {$addtoSet} Captain.firstMate
-     return firstMateChoice
-
      fetch request/get findAll(CrewChoice)
      let crewChoices(e) = event.target
      {$addtoSet} Captain.crewMembers
