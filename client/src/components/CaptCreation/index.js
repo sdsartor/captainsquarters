@@ -12,8 +12,6 @@ const Captain = {
     armor: 9,
     will: 3,
     health: 16,
-    gear: [],
-    slots: 6,
     background: "",
     corePowers: [],
     generalPowers: []
@@ -34,6 +32,20 @@ let NewCaptain = {
 
 let CaptainWithCorePowers={}
 
+let displayCaptain= { 
+name: "",
+level: 15,
+background: "",
+move: 6,
+fight: 3,
+shoot: 2,
+armor: 9,
+will: 3,
+health: 16,
+corePowers: [],
+generalPowers: []
+}
+
 //Declared Variables for global scope 
 let corePowers = []
 let chooseOneArr = []
@@ -52,14 +64,23 @@ let generalPowers = []
 //Creates Form for Captain Name and Handles submission
 const captainNameFunc = () => {
 
+let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+displayCaptainDiv.textContent=''
+    
     //Grabs the input
     let cptNameUserInput = document.getElementById('captainNameInput')  
     //Changes Captain Name to input
     Captain.name = cptNameUserInput.value
+
+    displayCaptain = Captain
+    displayCaptainUpdate()
 }
 
 //Gets  Background Choice
 const captainBackgroundFunc = () => {
+let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+displayCaptainDiv.textContent=''
+
 let backgroundArr = document.getElementsByName('background')
 let submitButton = document.getElementById('captainBackgroundSubmitButton')
 let i = 0
@@ -210,12 +231,15 @@ let i = 0
             captainChooseTwoStatModsFunc()
         }
         
-    }   
-
-//Logic for a Captain with one Stat Mod Choice    
+        displayCaptainUpdate()
+    }       
 
 //Logic for a Captain with two Stat Mod Choices
 const captainChooseTwoStatModsFunc = () =>{
+
+    let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+    displayCaptainDiv.textContent=''
+
 
     let i
     
@@ -267,6 +291,12 @@ const captainChooseTwoStatModsFunc = () =>{
 
 const chooseTwoGetStatChoices = () => {
 
+    let choiceArr = []
+    let i
+
+    let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+    displayCaptainDiv.textContent=''
+
     let chooseTwoCheckboxes = document.getElementsByClassName('chooseTwoCheckboxes')
     
     NewCaptain = {
@@ -278,14 +308,11 @@ const chooseTwoGetStatChoices = () => {
         armor: Captain.armor,
         will: Captain.will,
         health: Captain.health,
-        background: Captain.background
+        background: Captain.background,
+        corePowers: Captain.corePowers,
+        generalPowers: Captain.generalPowers
     }
-
     
-    let choiceArr = []
-    let i
-    
-
     for (i=0;i < chooseTwoCheckboxes.length; i++) {    
         if (chooseTwoCheckboxes[i].checked === true){
             choiceArr.push(chooseTwoCheckboxes[i].value)
@@ -305,16 +332,20 @@ const chooseTwoGetStatChoices = () => {
         if (choiceArr[0]==='Health' || choiceArr[1]==='Health'){
             NewCaptain.health += 1
         }
+        displayCaptain = NewCaptain
+        displayCaptainUpdate()
     }
     else 
     console.log("Please Select Two and resubmit")
 
-    console.log(NewCaptain)
-    console.log(Captain) 
     return NewCaptain
 }
 //Logic to create a checkbox list of core powers based on background
 const captainCorePowersFunc = () => {
+
+    let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+    displayCaptainDiv.textContent=''
+
 
     // Grabs the corePowers Div
     let corePowersDiv = document.getElementById('chooseCorePowers')
@@ -364,6 +395,9 @@ const captainCorePowersFunc = () => {
 //Logic to read choices and add chosen core powers to Captain
 const addCorePowers = (event) => {
 
+    let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+    displayCaptainDiv.textContent=''
+
     //Grabs the Dynamically Made CheckBoxes
     let corePowersArr = document.getElementsByClassName('corePowersCheckboxes')
     
@@ -399,10 +433,8 @@ const addCorePowers = (event) => {
             console.log("Please Select 3 and resubmit")    
             //submitButton.disabled=true
         }
-    console.log(choiceArr)
-    console.log(CaptainWithCorePowers)
-    console.log(NewCaptain)
-    console.log(Captain)
+    displayCaptain = CaptainWithCorePowers
+    displayCaptainUpdate()
 }
 
 const getPowersWithoutCorePowers = () => {
@@ -420,11 +452,14 @@ const getPowersWithoutCorePowers = () => {
             }
         }
     }
-    console.log(generalPowers)
     captainChooseGeneralPowers()
 }
 
 const captainChooseGeneralPowers = () => {
+    
+    let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+    displayCaptainDiv.textContent=''
+    
     let generalPowersDiv = document.getElementById('chooseGeneralPowers')
     generalPowersDiv.textContent = ''
     let i
@@ -467,6 +502,10 @@ const captainChooseGeneralPowers = () => {
 }
 
 const addGeneralPowers = () => {
+
+    let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+    displayCaptainDiv.textContent=''
+
     //Grabs the Dynamically Made CheckBoxes
     let generalPowersArr = document.getElementsByClassName('generalPowersCheckboxes')
     
@@ -502,13 +541,15 @@ const addGeneralPowers = () => {
             console.log("Please Select 2 and resubmit")    
             //submitButton.disabled=true
         }
-    console.log(choiceArr)
-    console.log(CaptainWithCorePowers)
-    console.log(NewCaptain)
-    console.log(CaptainWithGeneralPowers)    
+    displayCaptain = CaptainWithGeneralPowers
+    displayCaptainUpdate()  
 }
 
 const captainChooseOneStatModsFunc = () =>{
+
+    let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+    displayCaptainDiv.textContent=''
+
 
     let i
     
@@ -560,6 +601,10 @@ const captainChooseOneStatModsFunc = () =>{
 
 const chooseOneGetStatChoice = () => {
 
+    let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+    displayCaptainDiv.textContent=''
+
+
     let statModArr = document.getElementsByClassName('chooseOneRadio')
     console.log(statModArr)
     NewCaptain = {
@@ -595,30 +640,40 @@ const chooseOneGetStatChoice = () => {
     }
 
     console.log(NewCaptain)
-    console.log(Captain) 
+    console.log(Captain)
+    displayCaptain = NewCaptain 
     return NewCaptain
 }
 
+const displayCaptainUpdate = () => {
+    let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+    
+    let keysArr = Object.keys(displayCaptain)
+    let valuesArr = Object.values(displayCaptain)
+    let i
+    let h2 = document.createElement('h2')
+    h2.id = 'captainStatsTitle'
+    h2.textContent = 'CaptainStats: '
+    
+    displayCaptainDiv.append(h2)
+    
+    for (i=0; i<keysArr.length; i++){
+        let key = keysArr[i]
+        let value = valuesArr[i] 
+        let statStatement = `${key}: ${value}`
+        
+        let stat = document.createElement('p')
+        stat.textContent = statStatement
+
+        displayCaptainDiv.append(stat)
+        
+    }
+}
 //Function to create CaptainCreation Page
 const CaptCreation = () => {
   return (
     <main>
-        <div>
-            <p>
-                Captain Stats: <br/>
-                Name: Captain {Captain.name} <br/>
-                Level: 15,<br/>
-                Background: {Captain.background}<br/>
-                Move: {Captain.move} <br/>
-                Fight: {Captain.fight} <br/>
-                Shoot: {Captain.shoot} <br/>
-                Armor: {Captain.armor} <br/>
-                Will: {Captain.will} <br/>
-                Health: {Captain.health} <br/>
-                Core Powers: {Captain.corePowers} <br/>
-                General Powers: {Captain.generalPowers} <br/>
-            </p>
-        </div>
+        <div id='displayCaptainDiv'></div>
 
         <div className = "captNameForm">
           <p>Name your Captain:</p>
@@ -662,9 +717,11 @@ const CaptCreation = () => {
         <div  id="chooseTwoDiv"></div>
         
         <div id='chooseCorePowers'></div>
+        
         <div id='chooseGeneralPowers'></div>                
     </main>
   );
   };
 
 export default CaptCreation;
+
