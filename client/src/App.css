@@ -5,7 +5,9 @@
   --secondary-button-color: #78cce2;
   --accent-color: #005066;
 }
-
+.flex-column {
+  background-color: rgba(85, 81, 81, 0.082);
+}
 .main {
   min-height: 100vh;
 }
@@ -111,4 +113,5 @@ footer {
   background-repeat: no-repeat;
   background-position: center;
   min-height: 100vh;
+
 }
