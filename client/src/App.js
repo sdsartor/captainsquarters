@@ -18,7 +18,7 @@ import Captain from './pages/Captain';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import CaptCreation from './components/CaptCreation';
+
 import CrewCreation from './components/CrewCreation';
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -72,8 +72,8 @@ function App() {
                 element={<Captain />}
               /> */}
               <Route
-                path="/CaptCreation"
-                element={<CaptCreation />}
+                path="/Captain"
+                element={<Captain />}
               />
               <Route
               path='/CrewCreation'
