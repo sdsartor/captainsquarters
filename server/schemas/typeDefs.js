@@ -1,6 +1,11 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+type Captain {
+    name: String
+
+}
+
     type User {
         _id: ID
         username: String
@@ -9,14 +14,10 @@ const typeDefs = gql`
         captains: [Captain]
     }
 
-    type Captain {
-        name: String
-
-    }
 
     type Auth {
-        _id: ID
         user: User
+        token: ID
     }
 
     type Query {
@@ -31,8 +32,6 @@ const typeDefs = gql`
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         createCaptain(name: String!): Auth
-        deleteCaptain(name: String!): Auth
-        updateCaptain(name: String!): Auth
     }
 `;
 // Credit to Dillon!!!!
