@@ -1,4 +1,3 @@
-
 import './App.css';
 import React from 'react';
 import {
@@ -9,7 +8,6 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import 'semantic-ui-css/semantic.min.css';
 
 import Home from './pages/Home';
 import Signup from './pages/Signup';
@@ -43,7 +41,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start ">
+        <div className="flex-column justify-flex-start">
           <Header />
           <div className="container">
             <Routes>
@@ -59,18 +57,18 @@ function App() {
                 path="/signup"
                 element={<Signup />}
               />
-              {/* <Route
+              <Route
                 path="/me"
                 element={<Profile />}
-              /> */}
-              {/* <Route
+              />
+              <Route
                 path="/profiles/:username"
                 element={<Profile />}
-              /> */}
-              {/* <Route
+              />
+              <Route
                 path="/captains/:captainId"
                 element={<Captain />}
-              /> */}
+              />
               <Route
                 path="/CaptCreation"
                 element={<CaptCreation />}
