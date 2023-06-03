@@ -251,12 +251,3 @@ background-image: url(../../assets/hustler.jpg);
  margin-left: -30px;
 }
 
-.container {
-background-image: url(../../assets/background.webp);
-background-blend-mode: lighten;
-background-color: rgb(9, 9, 127);
-width: 100vw;
-height: 100vw;
-background-repeat: repeat-x repeat-y;
-
-}
