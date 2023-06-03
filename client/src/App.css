@@ -148,7 +148,7 @@ justify-content: center;
   line-height: 300px;
   color: #03446A;
   text-align: center;
-  font-size: 60px;
+  font-size: 12px;
   border-radius: 5px;
   backface-visibility: hidden;
   margin-top: 400px;
@@ -160,13 +160,12 @@ justify-content: center;
 
 #hunter {
   background-image: url(../../assets/hunter.jpg);
-margin-left: -140PX;
+
 
 }
 
 
 #back0 {
-  background: #03446A;
   color: white;
   transform: rotateY( 180deg );
   position: absolute;
@@ -175,10 +174,10 @@ margin-left: -140PX;
   line-height: 300px;
   color: #03446A;
   text-align: center;
-  font-size: 60px;
+  font-size: 20px;
   border-radius: 5px;
   backface-visibility: hidden;
-  margin-left: 140px;
+  margin-left: -200px;
 
 }
   
@@ -186,12 +185,12 @@ margin-left: -140PX;
 
 #warrior {
   background-image: url(../../assets/warrior.jpg);
-margin-left: -80px;
+
 margin-top: 0%
 
 }
 #back1 {
-  background: #03446A;
+ 
 
   transform: rotateY( 180deg );
   position: relative;
@@ -200,42 +199,20 @@ margin-top: 0%
   line-height: 300px;
   color: #03446A;
   text-align: center;
-  font-size: 60px;
+  font-size: 20px;
   border-radius: 5px;
   backface-visibility: hidden;
- margin-left: 80px;
  z-index: 10px;
  margin-top: -133%;
+ margin-left: -200px;
 }
 
 #astro {
   background-image: url(../../assets/astro.jpg);
-margin-left: -20px;
+
 }
 
 #back2 {
-  background: #03446A;
-  transform: rotateY( 180deg );
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  line-height: 300px;
-  color: #03446A;
-  text-align: center;
-  font-size: 60px;
-  border-radius: 5px;
-  backface-visibility: hidden;
-  margin-left: 20px;
-
-}
-
-#hustler {
-background-image: url(../../assets/hustler.jpg);
-}
-
-#back3 {
-  display: flexbox;
-  background: #03446A;
   
   transform: rotateY( 180deg );
   position: absolute;
@@ -244,10 +221,35 @@ background-image: url(../../assets/hustler.jpg);
   line-height: 300px;
   color: #03446A;
   text-align: center;
-  font-size: 60px;
+  font-size: 20px;
   border-radius: 5px;
   backface-visibility: hidden;
- margin-left: -30px;
+  margin-left: -200px;
+ 
+
+}
+
+#hustler {
+background-image: url(../../assets/hustler.jpg);
+
+}
+
+#back3 {
+  display: flexbox;
+ 
+  transform: rotateY( 180deg );
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  line-height: 300px;
+  color: #03446A;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 5px;
+  backface-visibility: hidden;
+margin-left: -200px;
+margin-top: 200px;
+ 
 }
 
 .creation {
