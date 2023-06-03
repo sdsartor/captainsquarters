@@ -98,6 +98,7 @@ const addCrewMember = (test) => {
         console.log('This is a standard Trooper')
     }
     console.log(chosenArr)
+    displayYourCrewFunc()
 }
 
 
@@ -117,20 +118,48 @@ const displayYourCrewFunc = () => {
     
     //Grab Div
     let yourCrewDiv = document.getElementById('yourCrewDiv')
-    let yourCrewDivMessage = document.getElementById('yourCrewDivMessage')
     let i
+
+    yourCrewDiv.textContent =''
 
     let yourCrewNameDisplay = document.createElement('p')
     yourCrewNameDisplay.textContent = `${crew.name}`
     
     for (i=0;i<chosenArr.length;i++){
-    let yourCrewMembersDisplay = document.createElement('p')
+
+    let yourCrewMembersDisplay = document.createElement('div')
+    yourCrewMembersDisplay.textContent = chosenArr[i].name
+    console.log(yourCrewMembersDisplay)
+    yourCrewDiv.append(yourCrewMembersDisplay)
+
+    let removeButton = document.createElement('button')
+    removeButton.setAttribute('type','submit')
+    removeButton.textContent = 'Remove CrewMember'
+    yourCrewDiv.append(removeButton)
+    removeButton.onclick = function() {removeCrewMember(yourCrewMembersDisplay.textContent)}
     }
-    yourCrewDiv.append(yourCrewNameDisplay)
+    
 
 
 }
 
+const removeCrewMember = (test) => {
+    
+    let i
+    let choice
+
+    for(i=0;i<crewStats.length;i++){
+        if (test===crewStats[i].name){
+            choice = crewStats[i]
+        }
+    }
+    
+    for(i=0; i<chosenArr.length;i++){
+        if (choice === chosenArr[i]) {
+            chosenArr.splice(i,1)
+        }
+    }
+}
 
 //Function to create CrewCreation Page
 const CrewCreation = () => {
