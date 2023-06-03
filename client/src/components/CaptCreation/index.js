@@ -600,13 +600,11 @@ const captainChooseOneStatModsFunc = () =>{
 }
 
 const chooseOneGetStatChoice = () => {
-
+    let statModArr = document.getElementsByClassName('chooseOneRadio')
+    let i
     let displayCaptainDiv = document.getElementById('displayCaptainDiv')
     displayCaptainDiv.textContent=''
 
-
-    let statModArr = document.getElementsByClassName('chooseOneRadio')
-    console.log(statModArr)
     NewCaptain = {
         name: Captain.name,
         level: Captain.level,
@@ -619,10 +617,6 @@ const chooseOneGetStatChoice = () => {
         background: Captain.background
     }
 
-    
-    let choiceArr = []
-    let i
-    
     for (i=0; i < statModArr.length; i++) {    
         if (statModArr[i].checked === true){
             let choice = statModArr[i]
@@ -639,34 +633,29 @@ const chooseOneGetStatChoice = () => {
         }
     }
 
-    console.log(NewCaptain)
-    console.log(Captain)
     displayCaptain = NewCaptain 
     return NewCaptain
 }
 
 const displayCaptainUpdate = () => {
     let displayCaptainDiv = document.getElementById('displayCaptainDiv')
-    
     let keysArr = Object.keys(displayCaptain)
     let valuesArr = Object.values(displayCaptain)
     let i
+    
     let h2 = document.createElement('h2')
     h2.id = 'captainStatsTitle'
     h2.textContent = 'CaptainStats: '
-    
     displayCaptainDiv.append(h2)
     
     for (i=0; i<keysArr.length; i++){
         let key = keysArr[i]
         let value = valuesArr[i] 
         let statStatement = `${key}: ${value}`
-        
+
         let stat = document.createElement('p')
         stat.textContent = statStatement
-
-        displayCaptainDiv.append(stat)
-        
+        displayCaptainDiv.append(stat) 
     }
 }
 //Function to create CaptainCreation Page
@@ -724,4 +713,5 @@ const CaptCreation = () => {
   };
 
 export default CaptCreation;
+
 
