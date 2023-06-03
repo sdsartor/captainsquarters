@@ -17,6 +17,9 @@ const Header = () => {
           </Link>
           <p className="m-0">An easy start-up for Stargrave.</p>
         </div>
+        <Link to="/Credits" className="btn btn-primary">
+          Credits page
+        </Link>
         <div className="header-right">
           {Auth.loggedIn() ? (
             <>
