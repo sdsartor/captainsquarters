@@ -46,6 +46,8 @@ corePowers: [],
 generalPowers: []
 }
 
+let CompletedCaptain
+
 //Declared Variables for global scope 
 let corePowers = []
 let chooseOneArr = []
@@ -542,15 +544,16 @@ const addGeneralPowers = () => {
             //submitButton.disabled=true
         }
     displayCaptain = CaptainWithGeneralPowers
-    displayCaptainUpdate()  
+    displayCaptainUpdate()
+    CompletedCaptain = CaptainWithGeneralPowers
+    console.log(CompletedCaptain)  
 }
 
 const captainChooseOneStatModsFunc = () =>{
 
     let displayCaptainDiv = document.getElementById('displayCaptainDiv')
     displayCaptainDiv.textContent=''
-
-
+    
     let i
     
     //Grabbing Elements
@@ -594,9 +597,6 @@ const captainChooseOneStatModsFunc = () =>{
     submitButton.textContent = 'Submit'
     chooseOneDiv.append(submitButton)
     submitButton.onclick = function() {chooseOneGetStatChoice()};
-    
-
-    
 }
 
 const chooseOneGetStatChoice = () => {
@@ -712,6 +712,6 @@ const CaptCreation = () => {
   );
   };
 
-export default CaptCreation;
-
+export {CompletedCaptain};
+export default CaptCreation
 
