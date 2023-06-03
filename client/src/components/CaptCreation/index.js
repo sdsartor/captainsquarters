@@ -46,8 +46,6 @@ corePowers: [],
 generalPowers: []
 }
 
-let CompletedCaptain
-
 //Declared Variables for global scope 
 let corePowers = []
 let chooseOneArr = []
@@ -544,16 +542,15 @@ const addGeneralPowers = () => {
             //submitButton.disabled=true
         }
     displayCaptain = CaptainWithGeneralPowers
-    displayCaptainUpdate()
-    CompletedCaptain = CaptainWithGeneralPowers
-    console.log(CompletedCaptain)  
+    displayCaptainUpdate()  
 }
 
 const captainChooseOneStatModsFunc = () =>{
 
     let displayCaptainDiv = document.getElementById('displayCaptainDiv')
     displayCaptainDiv.textContent=''
-    
+
+
     let i
     
     //Grabbing Elements
@@ -597,14 +594,19 @@ const captainChooseOneStatModsFunc = () =>{
     submitButton.textContent = 'Submit'
     chooseOneDiv.append(submitButton)
     submitButton.onclick = function() {chooseOneGetStatChoice()};
+    
+
+    
 }
 
 const chooseOneGetStatChoice = () => {
-    let statModArr = document.getElementsByClassName('chooseOneRadio')
-    let i
+
     let displayCaptainDiv = document.getElementById('displayCaptainDiv')
     displayCaptainDiv.textContent=''
 
+
+    let statModArr = document.getElementsByClassName('chooseOneRadio')
+    console.log(statModArr)
     NewCaptain = {
         name: Captain.name,
         level: Captain.level,
@@ -617,6 +619,10 @@ const chooseOneGetStatChoice = () => {
         background: Captain.background
     }
 
+    
+    let choiceArr = []
+    let i
+    
     for (i=0; i < statModArr.length; i++) {    
         if (statModArr[i].checked === true){
             let choice = statModArr[i]
@@ -633,39 +639,44 @@ const chooseOneGetStatChoice = () => {
         }
     }
 
+    console.log(NewCaptain)
+    console.log(Captain)
     displayCaptain = NewCaptain 
     return NewCaptain
 }
 
 const displayCaptainUpdate = () => {
     let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+    
     let keysArr = Object.keys(displayCaptain)
     let valuesArr = Object.values(displayCaptain)
     let i
-    
     let h2 = document.createElement('h2')
     h2.id = 'captainStatsTitle'
     h2.textContent = 'CaptainStats: '
+    
     displayCaptainDiv.append(h2)
     
     for (i=0; i<keysArr.length; i++){
         let key = keysArr[i]
         let value = valuesArr[i] 
         let statStatement = `${key}: ${value}`
-
+        
         let stat = document.createElement('p')
         stat.textContent = statStatement
-        displayCaptainDiv.append(stat) 
+
+        displayCaptainDiv.append(stat)
+        
     }
 }
 //Function to create CaptainCreation Page
 const CaptCreation = () => {
   return (
-    <main>
-        <div id='displayCaptainDiv'></div>
-
+    <main className='creation'>
+        <div className="Cardback2" id='displayCaptainDiv'></div>
+<div className="Cardback3">
         <div className = "captNameForm">
-          <p>Name your Captain:</p>
+          <p style={{marginLeft:"24%", color:"rgb(198, 10, 10)"}}>Name your Captain:</p>
           <input id = 'captainNameInput' type = 'text'></input>
           <button
           id = 'captainNameSubmitButton'
@@ -674,7 +685,8 @@ const CaptCreation = () => {
           >Submit 
           </button>
         </div>
-        
+        </div>
+        <div className='Cardback'>
         <div className = 'backgroundSelector'>
             <p>Select Your Captain's Background:</p>
             <input value='Biomorph' name='background' type = 'radio' id='biomorph' />
@@ -700,18 +712,18 @@ const CaptCreation = () => {
             >Submit 
             </button>
         </div>
+        </div>
         
-        <div  id="chooseOneDiv"></div>    
+        <div className='Cardback1' id="chooseOneDiv"></div>    
         
-        <div  id="chooseTwoDiv"></div>
+        <div className='Cardback1' id="chooseTwoDiv"></div>
         
-        <div id='chooseCorePowers'></div>
+        <div className="Cardback1" id='chooseCorePowers'></div>
         
-        <div id='chooseGeneralPowers'></div>                
+        <div className='Cardback1' id='chooseGeneralPowers'></div>                
     </main>
   );
   };
 
-export {CompletedCaptain};
-export default CaptCreation
+export default CaptCreation;
 
