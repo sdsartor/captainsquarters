@@ -17,6 +17,7 @@ import Captain from './pages/Captain';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import CaptCreation from './components/CaptCreation'
 
 import CrewCreation from './components/CrewCreation';
 const httpLink = createHttpLink({
@@ -81,6 +82,10 @@ function App() {
               <Route
               path='/CrewCreation'
               element={<CrewCreation />}
+              />
+              <Route
+              path='/CaptCreation'
+              element={<CaptCreation />}
               />
             </Routes>
           </div>
