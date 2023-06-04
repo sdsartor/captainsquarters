@@ -7,30 +7,28 @@ const CrewChoice = require('./CrewChoice');
 const captainSchema = new Schema({
     name: {
         type: String,
-        required: true,
-        unique: true,
     },
     background: [
         {
-            type: Schema.Types.ObjectId,
+            type: Schema.Types.Mixed,
             ref: 'Background'
         },
     ],
     firstMate: [
         {
-            type: Schema.Types.ObjectId,
+            type: Schema.Types.Mixed,
             ref: 'FirstMate'
         }
     ],
     crewMembers: [
         {
-            type: Schema.Types.ObjectId,
+            type: Schema.Types.Mixed,
             ref: 'CrewChoice'
         }
     ],
     createdBy: [
         {
-            type: Schema.Types.ObjectId,
+            type: Schema.Types.Mixed,
             ref: 'User'
         }
     ]

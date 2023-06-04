@@ -1,45 +1,8 @@
 [
   {
-    "name": "Long John",
-    "background": "Mystic",
-    "stats": {
-      "move": 6,
-      "fight": 3,
-      "shoot": 2,
-      "armor": 9,
-      "will": 4,
-      "health": 15
-    },
-    "powers": ["Dark Energy", "Heal", "Suggestion", "Void Blade"],
-
-    "firstMate": {
-      "name": "Harry",
-      "background": "Tekker",
-      "stats": {
-        "move": 6,
-        "fight": 3,
-        "shoot": 2,
-        "armor": 9,
-        "will": 4,
-        "health": 15
-      },
-      "powers": ["Drone", "Electromagnetic Pulse", "Transport", "Data Knock"]
-    },
-    
-      "crewMembers": {
-        "name": "Recruit",
-        "stats": {
-          "move": 6,
-          "fight": 2,
-          "shoot": 2,
-          "armor": 10,
-          "will": 0,
-          "health": 12,
-          "cost": 0
-        },
-        "gear": ["Pistol", "Light Armor", "Knife"],
-        "soldierType": "standard"
-      }
-    
+      "name": "",
+      "background": {},
+      "firstMate": {},
+      "crewMembers": {}
   }
 ]
