@@ -10,7 +10,7 @@ const Credits = () => {
     <div className="front" id='hunter'>
     </div>
     <div id="back0">
-      Commander: Stephen
+      Commander Stephen
     </div>
   </div>
 </div>
@@ -19,7 +19,7 @@ const Credits = () => {
     <div className="front" id='warrior'>
     </div>
     <div id="back1" style={{}}>
-     Commander: Matthew
+     Commander Matthew
     </div>
   </div>
 </div>
@@ -29,7 +29,7 @@ const Credits = () => {
     <div className="front" id='astro'>
     </div>
     <div id="back2">
-      Commander: Dillon
+      Commander Dillon
     </div>
   </div>
 </div>
@@ -38,7 +38,7 @@ const Credits = () => {
     <div className="front" id='hustler' >
     </div>
     <div id="back3">
-      Commander: James
+      Commander James
     </div>
   </div>
 </div>

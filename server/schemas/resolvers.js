@@ -52,7 +52,7 @@ const resolvers = {
            if (context.user) {
           return User.findOneAndUpdate(
             {
-                $addToSet: {  Captain:  },
+                $addToSet: {  Captain: Captain  },
             },
             {
                 new: true,
