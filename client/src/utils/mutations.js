@@ -25,8 +25,8 @@ export const ADD_USER = gql`
 `;
 
 export const CREATE_CAPTAIN = gql`
-    mutation createCaptain($name: String!, $background: [Background], $firstMate: [FirstMate], $crewMembers: [CrewChoice], $createdBy: [User]) {
-        createCaptain(name: $name, background: $background, firstMate: $firstMate, crewMembers: $crewMembers, createdBy: $createdBy) {
+    mutation createCaptain($name: String, $background: Input, $firstMate: Input, $crewMembers: Input, $createdBy: Input) {
+        createCaptain(name: $name, background: Input, firstMate: Input, crewMembers: Input, createdBy: Input) {
             _id
             name
             background

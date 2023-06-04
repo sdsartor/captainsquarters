@@ -5,7 +5,7 @@ const powerSeeds = require('./powerSeeds.json');
 const backgroundSeeds = require('./backgroundSeeds.json');
 const firstmateSeeds = require('./firstmateSeeds.json');
 const crewSeeds = require('./crewSeeds.json');
-// const captainSeeds = require('./captainSeeds.json');
+const captainSeeds = require('./captainSeeds.json');
 
 
 db.once('open', async () => {
@@ -22,7 +22,7 @@ db.once('open', async () => {
     await Background.create(backgroundSeeds);
     await FirstMate.create(firstmateSeeds);
     await CrewChoice.create(crewSeeds);
-    await Captain.create();
+    await Captain.create(captainSeeds);
 
     console.log('all done!');
     process.exit(0);

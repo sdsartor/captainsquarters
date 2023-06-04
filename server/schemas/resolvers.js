@@ -11,8 +11,8 @@ const resolvers = {
         user: async (parent, { username }) => {
             return User.findOne({ username }).populate('captains');
         },
-        captains: async (parent, { username }) => {
-            const params = username ? { username } : {};
+        captains: async (parent, { name }) => {
+            const params = name ? { name } : {};
             return Captain.find(params);
         },
         captain: async (parent, { captainId }) => {
@@ -46,73 +46,44 @@ const resolvers = {
             }
             const token = signToken(user);
             return { token, user };
-        },
-
-        createCaptain: async (parent, { Captain }, context) => {
-           if (context.user) {
-          return User.findOneAndUpdate(
-            {
-                $addToSet: {  Captain:  },
             },
-            {
-                new: true,
-                runValidators: true,
-            }
-          );
+        createCaptain: async (parent, { Captain, User }, context) => {
+            if (context.user) {
+                const captain = Captain.create({
+                    name,
+                    background: {
+                        name,
+                        stats,
+                        corePowers
+                    },
+                    firstMate: {
+                        name,
+                        background,
+                        stats,
+                        powers
+                    },
+                    crewMembers: {
+                        name,
+                        stats,
+                        gear,
+                        soldierType
+                    },
+                    createdBy: {
+                        username
+                    }
+                });
 
-            // await User.findByIdAndUpdate(context.user.id, { $push: { Captain: Captain },
-            // });
-
-            // return captain;
-           }
-        },
-
-    // deleteCaptain: async (parent, { captainId }, context) => {
-    //     if (context.user) {
-    //         const updatedUser = await User.findOneAndDelete({
-    //             _id: captainId,
-    //             $pull: context.user.username,
-    //             new: true,
-    //         });
-    //         await User.findOneAndUpdate(
-    //             { _id: context.user._id},
-    //             { $pull: { captain: { captainId: captainId} }},
-    //             { new: true }
-    //         );
-    //         return updatedUser;
-    //     }
-    // },
-    // updateCaptain: async (parent, { captainId }, context ) => {
-    //     if (context.user) {
-    //     const captain = await Captain.findByIdAndUpdate(
-    //         id,
-    //         { new: true }
-    //     );
-    //     return captain;
-    // }
-
-    // }
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { captains: captain._id}}
+                );
+                return captain;
+                }
+            } 
     }
 };
 
 module.exports = resolvers;
-
-// BELOW IS WHAT I STARTED FOR THE CREATE CAPTAIN RESOLVER
-
-// createCaptain: async (parent, { Captain }, context) => {
-//     if (context.user) {
-//         const captain = await Captain.create({
-//             name,
-//             background,
-//             firstMate,
-//             crewMembers
-//         });
-//         await Background.findOne(
-//             { _id: context.user._id },
-//             { $addToSet: { background: background._id } }
-//         )
-//     }
-// }
 
 
 
