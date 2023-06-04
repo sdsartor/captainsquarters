@@ -146,14 +146,15 @@ justify-content: center;
   width: 100%;
   background: white;
   line-height: 300px;
-  color: #03446A;
+  color: #0a90de;
   text-align: center;
   font-size: 12px;
   border-radius: 5px;
   backface-visibility: hidden;
   margin-top: 400px;
   margin: 200px;
-
+  background-color: black;
+  opacity: 1;
 }
 
 
@@ -172,13 +173,14 @@ justify-content: center;
   height: 100%;
   width: 100%;
   line-height: 300px;
-  color: #03446A;
+  color: #0a90de;
   text-align: center;
   font-size: 20px;
   border-radius: 5px;
   backface-visibility: hidden;
   margin-left: -200px;
-
+  background-color: black;
+  opacity: 1;
 }
   
 
@@ -191,13 +193,14 @@ margin-top: 0%
 }
 #back1 {
  
-
+  background-color: black;
+  opacity: 1;
   transform: rotateY( 180deg );
   position: relative;
   height: 100%;
   width: 100%;
   line-height: 300px;
-  color: #03446A;
+  color: #0a90de;
   text-align: center;
   font-size: 20px;
   border-radius: 5px;
@@ -213,13 +216,15 @@ margin-top: 0%
 }
 
 #back2 {
-  
+  background-color: black;
+  opacity: 1;
   transform: rotateY( 180deg );
   position: absolute;
   height: 100%;
   width: 100%;
   line-height: 300px;
-  color: #03446A;
+  color: #0a90de;
+
   text-align: center;
   font-size: 20px;
   border-radius: 5px;
@@ -236,13 +241,14 @@ background-image: url(../../assets/hustler.jpg);
 
 #back3 {
   display: flexbox;
- 
+ background-color: black;
+ opacity: 1;
   transform: rotateY( 180deg );
   position: absolute;
   height: 100%;
   width: 100%;
   line-height: 300px;
-  color: #03446A;
+  color: #0a90de;
   text-align: center;
   font-size: 20px;
   border-radius: 5px;
@@ -319,3 +325,4 @@ text-align: left;
 padding-bottom: 20px;
 opacity: 0.7;
 }
+

@@ -46,6 +46,7 @@ const resolvers = {
             }
             const token = signToken(user);
             return { token, user };
+
             },
         createCaptain: async (parent, { Captain, User }, context) => {
             if (context.user) {
