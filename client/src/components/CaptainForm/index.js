@@ -12,14 +12,14 @@ const CompletedCaptainForm = () => {
 
  
 
-  const [addCompletedCaptain, { error }] = useMutation(CREATE_CAPTAIN, {
-    update(cache, { data: { addCompletedCaptain } }) {
+  const [createCaptain, { error }] = useMutation(CREATE_CAPTAIN, {
+    update(cache, { data: { createCaptain } }) {
       try {
-        const { completedcaptains } = cache.readQuery({ query: QUERY_CAPTAINS });
+        const { captains } = cache.readQuery({ query: QUERY_CAPTAINS });
 
         cache.writeQuery({
           query: QUERY_CAPTAINS,
-          data: { completedcaptains : [addCompletedCaptain, ...completedcaptains] },
+          data: { captains : [createCaptain, ...captains] },
         });
       } catch (e) {
         console.error(e);
@@ -29,7 +29,7 @@ const CompletedCaptainForm = () => {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, completedcaptains: [...me.completedcaptains, addCompletedCaptain] } },
+        data: { me: { ...me, captains: [...me.captains, createCaptain] } },
       });
     },
   });
@@ -38,7 +38,7 @@ const CompletedCaptainForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addCompletedCaptain({
+      const { data } = await createCaptain({
         variables: {
             CompletedCaptain,
         },
@@ -69,15 +69,8 @@ const CompletedCaptainForm = () => {
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
-            <div className="col-12 col-lg-9">
-              <textarea
-                name="thoughtText"
-                placeholder="Here's a new thought..."
-                value={thoughtText}
-                className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
-              ></textarea>
+            <div className="col-12 col-lg-9" value={CompletedCaptain} onChange={handleChange}>
+ 
             </div>
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
