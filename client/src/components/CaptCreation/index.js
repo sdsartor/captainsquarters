@@ -48,6 +48,7 @@ generalPowers: []
 
 //Declared Variables for global scope 
 let corePowers = []
+let backgroundsArr = ["Biomorph","Cyborg","Mystic","Robotics Expert","Rogue","Psionicist","Tekker","Veteran"]
 let chooseOneArr = []
 let chooseTwoArr = []
 let allPowers = ["Adrenaline Surge","Armor Plates","Camouflage","Fling","Regenerate","Restructure Body","Toxic Claws","Toxic Secretions",
@@ -74,20 +75,69 @@ displayCaptainDiv.textContent=''
 
     displayCaptain = Captain
     displayCaptainUpdate()
+    captainBackgroundFunc()
 }
 
 //Gets  Background Choice
 const captainBackgroundFunc = () => {
-let displayCaptainDiv = document.getElementById('displayCaptainDiv')
-displayCaptainDiv.textContent=''
+    let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+    displayCaptainDiv.textContent=''
+    let i
+    
+    //Grabbing Elements
+    let backgroundDiv = document.getElementById('backgroundDiv')
+    backgroundDiv.textContent = ''
+    
+    //let submitButton = document.getElementById('captainChooseTwoStatModsSubmitButton')
+    
+    //Creates a new Captain Object based on the original one for backtracking purposes
 
-let backgroundArr = document.getElementsByName('background')
-let submitButton = document.getElementById('captainBackgroundSubmitButton')
-let i = 0
-    for (i=0;i < backgroundArr.length; i++) {    
-        if (backgroundArr[i].checked === true){
-            let choice = backgroundArr[i]
-            Captain.background = choice.value
+    let paragraph = document.createElement('p')
+    paragraph.textContent='Choose a Background:' 
+    backgroundDiv.append(paragraph)
+
+    for (i=0;i<backgroundsArr.length;i++){
+        let backgroundDivRadio = document.createElement('input')
+        backgroundDivRadio.value = backgroundsArr[i]
+        let backgroundDivRadioLabels = document.createElement('label')
+        let lineBreak = document.createElement('br')
+
+        
+        backgroundDivRadio.value = backgroundsArr[i]
+        backgroundDivRadio.setAttribute('type','radio');
+        backgroundDivRadio.name = 'backgroundDivRadio'
+        backgroundDivRadio.className = 'backgroundDivRadio'
+
+        backgroundDivRadioLabels.name = 'backgroundDivRadioLabels'
+        backgroundDivRadioLabels.htmlFor = 'backgroundDivRadio'
+        backgroundDivRadioLabels.className = 'backgroundDivRadioLabels'
+        backgroundDivRadioLabels.textContent = backgroundsArr[i]
+        
+        //Appends the Checkbox and Label along with a line break
+        backgroundDiv.append(backgroundDivRadio)
+        backgroundDiv.append(backgroundDivRadioLabels)
+        backgroundDiv.append(lineBreak)
+    }
+        // Submit Button
+    let submitButton = document.createElement('button')
+    submitButton.setAttribute('type','submit')
+    submitButton.textContent = 'Submit'
+    backgroundDiv.append(submitButton)
+    submitButton.onclick = function() {backgroundChoice()};
+    displayCaptainUpdate()
+}    
+
+const backgroundChoice = () => {
+    let backgroundsArr = document.getElementsByName('backgroundDivRadio')
+    console.log(backgroundsArr)
+    let submitButton = document.getElementById('captainBackgroundSubmitButton')
+    let i = 0
+    
+        for (i=0;i < backgroundsArr.length; i++) {    
+            if (backgroundsArr[i].checked === true){
+                let choice = backgroundsArr[i]
+                Captain.background = choice.value
+                console.log(choice.value)
             
             if (choice.value === 'Biomorph') {
                 Captain.health += 1
@@ -104,7 +154,7 @@ let i = 0
                 chooseTwoArr = ["Move", "Fight", "Shoot"]
                 chooseOneArr = []
             }
-            if (choice.value === 'Cyborg') {
+            if (choice.value=== 'Cyborg') {
                 Captain.health += 1
                 corePowers= [
                     "Camouflage",
@@ -232,14 +282,14 @@ let i = 0
         }
         
         displayCaptainUpdate()
-    }       
+    }
+      
 
 //Logic for a Captain with two Stat Mod Choices
 const captainChooseTwoStatModsFunc = () =>{
 
     let displayCaptainDiv = document.getElementById('displayCaptainDiv')
     displayCaptainDiv.textContent=''
-
 
     let i
     
@@ -542,7 +592,39 @@ const addGeneralPowers = () => {
             //submitButton.disabled=true
         }
     displayCaptain = CaptainWithGeneralPowers
-    displayCaptainUpdate()  
+    displayCaptainUpdate()
+    displayFinalCaptain()  
+}
+
+const displayFinalCaptain= () => {
+    let chooseGeneralPowers = document.getElementById('chooseGeneralPowers')
+    let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+    
+    let saveButton = document.createElement('button')
+    saveButton.setAttribute('type','submit')
+    saveButton.textContent = "Save Button"
+    saveButton.className = "saveButton"
+    saveButton.id = "saveButton"
+    chooseGeneralPowers.append(saveButton)
+    saveButton.onclick = function () {clearDivs()}
+}
+
+const clearDivs = () => {
+    let chooseOneDiv = document.getElementById('chooseOneDiv')
+    chooseOneDiv.innerHTML = ''
+    let chooseTwoDiv = document.getElementById('chooseTwoDiv')
+    chooseTwoDiv.innerHTML = ''
+    let chooseCorePowers = document.getElementById('chooseCorePowers')
+    chooseCorePowers.innerHTML = ''
+    let chooseGeneralPowers = document.getElementById('chooseGeneralPowers')
+    chooseGeneralPowers.innerHTML= ''
+    let backgroundDiv = document.getElementById('backgroundDiv')
+    backgroundDiv.innerHTML =''
+    let captNameForm = document.getElementById('captNameForm')
+    captNameForm.innerHTML = ''
+
+    let displayCaptainDiv = document.getElementById('displayCaptainDiv')
+    displayCaptainDiv.setAttribute('style','Blue')
 }
 
 const captainChooseOneStatModsFunc = () =>{
@@ -672,10 +754,11 @@ const displayCaptainUpdate = () => {
 //Function to create CaptainCreation Page
 const CaptCreation = () => {
   return (
-    <main className='creation'>
+    <main className='creation' id='main'>
+        
         <div className="Cardback2" id='displayCaptainDiv'></div>
-<div className="Cardback3">
-        <div className = "captNameForm">
+        
+        <div className = "captNameForm" id='captNameForm'>
           <p style={{marginLeft:"24%", color:"rgb(198, 10, 10)"}}>Name your Captain:</p>
           <input id = 'captainNameInput' type = 'text'></input>
           <button
@@ -685,34 +768,8 @@ const CaptCreation = () => {
           >Submit 
           </button>
         </div>
-        </div>
-        <div className='Cardback'>
-        <div className = 'backgroundSelector'>
-            <p>Select Your Captain's Background:</p>
-            <input value='Biomorph' name='background' type = 'radio' id='biomorph' />
-                <label htmlFor = 'biomorph'>Biomorph</label><br/>
-            <input value='Cyborg' name='background' type = 'radio' id='cyborg' />
-                <label htmlFor = 'cyborg'>Cyborg</label><br/>
-            <input value='Mystic' name='background' type = 'radio' id='mystic' />
-                <label htmlFor = 'mystic'>Mystic</label><br/>
-            <input value='Robotics Expert' name='background' type = 'radio' id='roboticsExpert' />
-                <label htmlFor = 'roboticsExpert'>Robotics Expert</label><br/>
-            <input value='Rogue' name='background' type = 'radio' id='rogue' />
-                <label htmlFor = 'rogue'>Rogue</label><br/>
-            <input value='Psionicist' name='background' type = 'radio' id='psionicist' />
-                <label htmlFor = 'psionicist'>Psionicist</label><br/>
-            <input value='Tekker' name='background' type = 'radio' id='tekker' />
-                <label htmlFor = 'tekker'>Tekker</label><br/>
-            <input value='Veteran' name='background' type = 'radio' id='veteran' />
-                <label htmlFor = 'veteran'>Veteran</label><br/>
-            <button
-            id = 'captainBackgroundSubmitButton'
-            type = 'submit'
-            onClick = {captainBackgroundFunc}
-            >Submit 
-            </button>
-        </div>
-        </div>
+        
+        <div className = 'CardBack1' id='backgroundDiv'></div>
         
         <div className='Cardback1' id="chooseOneDiv"></div>    
         
