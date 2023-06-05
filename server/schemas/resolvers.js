@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Captain } = require('../models');
+const { User, Captain, Background, FirstMate, CrewChoice } = require('../models');
 const { signToken } = require('../utils/auth');
 
 
@@ -48,30 +48,15 @@ const resolvers = {
             return { token, user };
 
             },
-        createCaptain: async (parent, { Captain, User }, context) => {
+
+        createCaptain: async (parent, { name, background, firstMate, crewMembers, createdBy }, context) => {
             if (context.user) {
                 const captain = Captain.create({
                     name,
-                    background: {
-                        name,
-                        stats,
-                        corePowers
-                    },
-                    firstMate: {
-                        name,
-                        background,
-                        stats,
-                        powers
-                    },
-                    crewMembers: {
-                        name,
-                        stats,
-                        gear,
-                        soldierType
-                    },
-                    createdBy: {
-                        username
-                    }
+                    background,
+                    firstMate,
+                    crewMembers,
+                    createdBy
                 });
 
                 await User.findOneAndUpdate(
