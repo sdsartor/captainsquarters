@@ -1,14 +1,10 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_USERS = gql`
-    query users {
+    query allUsers {
         users {
             _id
-            username
-            captains {
-                _id
-                name
-            }
+            name
         }
     }
 `;
@@ -26,37 +22,6 @@ export const QUERY_USER = gql`
     }
 `;
 
-export const QUERY_CAPTAINS = gql`
-    query captains {
-        captains {
-            _id
-            name
-        }
-    }
-`;
-
-export const QUERY_SINGLE_CAPTAIN = gql`
-    query captain($captainId: ID!) {
-        captain(captainId: $captainId) {
-            _id
-            name
-            background {
-                name
-                stats
-                corePowers
-            }
-            firstMate {
-                name
-                background
-            }
-            crewMembers {
-                name
-                background
-            }
-        }
-    }
-`;
-
 export const QUERY_ME = gql`
   query me {
     me {
@@ -66,6 +31,44 @@ export const QUERY_ME = gql`
         _id
         name
       }
+    }
+  }
+`;
+
+export const QUERY_CAPTAINS = gql`
+  query captains {
+    captains {
+        _id
+        name
+        level
+        move
+        fight
+        shoot
+        armor
+        will
+        health
+        background
+        corePowers
+        generalPowers
+    }
+  }
+`;
+
+export const QUERY_CAPTAIN = gql`
+  query captain {
+    captain {
+        _id
+        name
+        level
+        move
+        fight
+        shoot
+        armor
+        will
+        health
+        background
+        corePowers
+        generalPowers
     }
   }
 `;

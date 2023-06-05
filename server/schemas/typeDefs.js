@@ -8,32 +8,17 @@ const typeDefs = gql`
     
     input Captain {
         name: String!
-        background: ID
-        firstMate: ID
-        crewMembers: ID
-        createdBy: ID
-    }
-    
-    type Background {
-        name: String
-        stats: ID
-        corePowers: ID
-    }
-
-    type FirstMate {
-        name: String
+        level: Int
+        move: Int
+        fight: Int
+        shoot: Int
+        armor: Int
+        will: Int
+        health: Int
         background: String
-        stats: ID
-        powers: ID
-    }
-
-    type CrewChoice {
-        name: String
-        stats: ID
-        gear: ID
-        soldierType: String
-    }
-
+        corePowers: ID
+        generalPowers: ID
+    
     type User {
         _id: ID
         username: String
@@ -43,7 +28,7 @@ const typeDefs = gql`
     }
 
     type Query {
-        users: [User]
+        users: ID
         user(username: String!): User
         captains(name: String): ID
         captain(captainId: ID): ID
@@ -53,7 +38,7 @@ const typeDefs = gql`
     type Mutation {
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        createCaptain(name: String!, background: ID, firstMate: ID, crewMembers: ID, createdBy: ID): ID
+        createCaptain(name: String!, level: Int, move: Int, fight: Int, shoot: Int, armor: Int, will: Int, health: Int, background: String, corePowers: ID, generalPowers: ID): ID
     }
 `;
 
