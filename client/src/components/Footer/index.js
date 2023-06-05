@@ -16,7 +16,7 @@ const Footer = () => {
             &larr; Go Back
           </button>
         )}
-        <h4>
+        <h4 className='credit-message'>
           Made with{' '}
           <span
             className="emoji"
