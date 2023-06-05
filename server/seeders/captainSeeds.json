@@ -1,15 +1,8 @@
 [
   {
       "name": "",
-      "level": 15,
-      "move":  6,
-      "fight": 3,
-      "shoot": 2,
-      "armor": 9,
-      "will": 3,
-      "health": 16,
-      "background": "",
-      "corePowers": null,
-      "generalPowers": null
+      "background": {},
+      "firstMate": {},
+      "crewMembers": {}
   }
 ]

@@ -48,28 +48,24 @@ const resolvers = {
             return { token, user };
 
             },
-// do need args on 52 instead of fields?
-        createCaptain: async (parent, { name, level, move, fight, shoot, armor, will, health, background, corePowers, generalPowers }) => {
-            const captain = await Captain.create({
-                name,
-                level,
-                move,
-                fight,
-                shoot,
-                armor,
-                will,
-                health,
-                background,
-                corePowers,
-                generalPowers
-            });
-            await User.findOneAndUpdate(
-                { _id: context.user._id },
-                { $addToSet: { captains: captain._id }}
-            )
-            return captain;
-            }
 
+        createCaptain: async (parent, { name, background, firstMate, crewMembers, createdBy }, context) => {
+            if (context.user) {
+                const captain = Captain.create({
+                    name,
+                    background,
+                    firstMate,
+                    crewMembers,
+                    createdBy
+                });
+
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { captains: captain._id}}
+                );
+                return captain;
+                }
+            } 
     }
 };
 
