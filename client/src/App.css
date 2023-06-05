@@ -268,7 +268,6 @@ margin-top: 200px;
 #displayCaptainDiv, #captainNameInput, .backgroundSelector, #displayCaptainDiv, #chooseOneDiv, #chooseTwoDiv, #chooseCorePowers, #chooseGeneralPowers {
 color: rgb(198, 10, 10);
 margin-left: 24%;
-
 }
 
 #captainNameSubmitButton, #captainBackgroundSubmitButton, button  {
@@ -286,13 +285,14 @@ text-align: left;
 background-image: url(../../);
 opacity: 0.7;
 }
-.Cardback1 {
+#backgroundDiv {
   background-color: black;
  width: 350px;
 border-radius: 24px;
 padding-left: 96px;
-margin-left: 250px;
+margin-left: 24%;
 opacity: 0.7;
+color: rgb(198, 10, 10);
 
 }
 
@@ -327,3 +327,12 @@ padding-bottom: 20px;
 opacity: 0.7;
 }
 
+.captNameForm {
+  background-color: black;
+  width: 450px;
+margin-left: 24%;
+border-radius: 24px;
+text-align: left;
+padding-bottom: 20px;
+opacity: 0.7;
+}
