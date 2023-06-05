@@ -25,27 +25,25 @@ export const ADD_USER = gql`
 `;
 
 export const CREATE_CAPTAIN = gql`
-    mutation createCaptain($name: String, $background: Input, $firstMate: Input, $crewMembers: Input, $createdBy: Input) {
-        createCaptain(name: $name, background: Input, firstMate: Input, crewMembers: Input, createdBy: Input) {
+    mutation createCaptain($name: String, $move: Int, $shoot: Int, $armor: Int, $will: Int, $health: Int, $background: String, $corePowers: ID, $generalPowers: ID) {
+        createCaptain(name: Input, level: Input, move: Input, fight: Input, shoot: Int, armor: Int, will: Input, health: Input, background: Input, corePowers: Input, generalPowers: Input) {
             _id
             name
+            level
+            move
+            fight
+            shoot
+            armor
+            will
+            health
             background
-            firstMate
-            crewMembers
-            createdby
+            corePowers
+            generalPowers
+            user {
+                _id
+                captains
+            }
         }
     }
 `;
-
-// export const DELETE_CAPTAIN = gql`
-//     mutation deleteCaptain($captainId: ID!) {
-//         deleteCaptain(captainId: $ID) {
-//             _id
-//             name
-//             background
-//             firstMate
-//             crewMembers
-//         }
-//     }
-// `;
 
