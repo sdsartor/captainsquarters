@@ -12,7 +12,7 @@ const Home = () => {
       <main className="bg-photo ">
         <h1>Welcome to Captains Quarters!</h1>
           <p>Click on this button to create your Captain!</p>
-          <Link to="/CaptCreation" className="btn btn-primary">
+          <Link to="/CaptCreation" className="btn ">
           Create Captain
         </Link>
       </main>

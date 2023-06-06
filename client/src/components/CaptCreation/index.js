@@ -759,7 +759,7 @@ const CaptCreation = () => {
         <div className="Cardback2" id='displayCaptainDiv'></div>
         
         <div className = "captNameForm" id='captNameForm'>
-          <p style={{marginLeft:"26%", color:"rgb(198, 10, 10)"}}>Name your Captain:</p>
+          <p style={{marginLeft:"26%", padding: "5%", color:"rgb(255,255,255)"}}>Name your Captain:</p>
           <input id = 'captainNameInput' type = 'text'></input>
           <button
           id = 'captainNameSubmitButton'

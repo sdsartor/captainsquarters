@@ -5,9 +5,11 @@
   --secondary-button-color: #78cce2;
   --accent-color: #005066;
 }
+
 .flex-column {
   background-color: rgba(85, 81, 81, 0.082);
 }
+
 .main {
   min-height: 100vh;
 }
@@ -16,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  left:1%;
+  left: 1%;
   margin: 1%;
 }
 
@@ -29,8 +31,9 @@
 
 
 body {
-  margin: 0; 
-  height: 100%;
+  margin: 0;
+  padding: 0;
+
   font-family: 'Voltaire', sans-serif;
 }
 
@@ -38,19 +41,28 @@ body {
   flex: 1;
 }
 
-.container {
-
-   margin-top: -21px; 
-
+.container-main {
+  margin-top: -21px;
+  height: 800px;
 }
 
-.bg-primary{
-  display:flex;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: -21px;
+}
+
+.bg-primary {
+  display: flex;
   flex-wrap: wrap;
   background-color: var(--secondary-color);
   color: var(--primary-color);
   align-items: center;
+  padding: 15px;
 }
+
 .flex-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -59,6 +71,7 @@ body {
 .flex-item {
   width: 100%;
 }
+
 /* header {
   display: flex;
   background-color: var(--secondary-color);
@@ -66,13 +79,13 @@ body {
 } */
 
 
-.header{
+.header {
   background-color: var(--secondary-color);
   color: var(--primary-color);
   display: flex;
   justify-content: space-between;
   margin: 1%;
-  width:80%;
+  width: 80%;
 }
 
 header h1 {
@@ -82,7 +95,93 @@ header h1 {
 
 header p {
   font-size: 14px;
-  padding:10px;
+  padding: 10px;
+}
+
+/* Signup page */
+
+
+.card {
+  margin-top: -100px;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.card-header {
+  background-color: #343a40;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-body {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #80bdff;
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #007bff;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.my-3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.p-3 {
+  padding: 1rem;
+}
+
+.bg-danger {
+  background-color: #dc3545;
 }
 
 .btn {
@@ -93,9 +192,10 @@ header p {
   text-decoration: none;
   color: var(--primary-color);
   background-color: var(--primary-button-color);
-  
+
 }
-.btn:hover{
+
+.btn:hover {
   cursor: pointer;
 }
 
@@ -113,6 +213,7 @@ footer {
   background-color: var(--secondary-color);
   color: #fff;
   margin-top: auto;
+  height: auto;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -127,28 +228,27 @@ footer {
   flex-shrink: 0;
 }
 
-#potentialCrewMemberDiv{
+#potentialCrewMemberDiv {
   border-radius: 25px;
 }
 
 .bg-photo {
-  background-image: url(../../assets/home-background.jpg);
-  width: 100%;
-  height: 1000%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(../../assets/home-background.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
-  min-height: 100vh;
-
 }
 
 .card {
   display: block;
   width: 300px;
   height: 300px;
-justify-content: center;
+  justify-content: center;
   float: left;
 
 }
@@ -157,19 +257,19 @@ justify-content: center;
   position: relative;
   width: 100%;
   height: 100%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   transition: transform 1s;
   transform-style: preserve-3d;
 }
 
 .card:hover .content {
-  transform: rotateY( 180deg ) ;
+  transform: rotateY(180deg);
 
 }
 
 .front,
-#back0, #back2 {
+#back0,
+#back2 {
   display: block;
   position: absolute;
   height: 100%;
@@ -198,7 +298,7 @@ justify-content: center;
 
 #back0 {
   color: white;
-  transform: rotateY( 180deg );
+  transform: rotateY(180deg);
   position: absolute;
   height: 100%;
   width: 100%;
@@ -212,20 +312,20 @@ justify-content: center;
   background-color: black;
   opacity: 1;
 }
-  
+
 
 
 #warrior {
   background-image: url(../../assets/warrior.jpg);
 
-margin-top: 0%
-
+  margin-top: 0%
 }
+
 #back1 {
- 
+
   background-color: black;
   opacity: 1;
-  transform: rotateY( 180deg );
+  transform: rotateY(180deg);
   position: relative;
   height: 100%;
   width: 100%;
@@ -235,9 +335,9 @@ margin-top: 0%
   font-size: 20px;
   border-radius: 5px;
   backface-visibility: hidden;
- z-index: 10px;
- margin-top: -133%;
- margin-left: -200px;
+  z-index: 10px;
+  margin-top: -133%;
+  margin-left: -200px;
 }
 
 #astro {
@@ -248,7 +348,7 @@ margin-top: 0%
 #back2 {
   background-color: black;
   opacity: 1;
-  transform: rotateY( 180deg );
+  transform: rotateY(180deg);
   position: absolute;
   height: 100%;
   width: 100%;
@@ -260,20 +360,20 @@ margin-top: 0%
   border-radius: 5px;
   backface-visibility: hidden;
   margin-left: -200px;
- 
+
 
 }
 
 #hustler {
-background-image: url(../../assets/hustler.jpg);
+  background-image: url(../../assets/hustler.jpg);
 
 }
 
 #back3 {
   display: flexbox;
- background-color: black;
- opacity: 1;
-  transform: rotateY( 180deg );
+  background-color: black;
+  opacity: 1;
+  transform: rotateY(180deg);
   position: absolute;
   height: 100%;
   width: 100%;
@@ -283,24 +383,33 @@ background-image: url(../../assets/hustler.jpg);
   font-size: 20px;
   border-radius: 5px;
   backface-visibility: hidden;
-margin-left: -200px;
-margin-top: 200px;
- 
+  margin-left: -200px;
+  margin-top: 200px;
+
 }
 
 .creation {
   background-image: url(../../assets/cold.webp);
-  background-blend-mode:hard-light;
+  background-blend-mode: hard-light;
   background-color: rgb(246, 44, 8);
-  height: 600px;
+  height: 100%;
 }
 
-#displayCaptainDiv, #captainNameInput, .backgroundSelector, #displayCaptainDiv, #chooseOneDiv, #chooseTwoDiv, #chooseCorePowers, #chooseGeneralPowers {
-color: rgb(198, 10, 10);
-margin-left: 24%;
+#displayCaptainDiv,
+#captainNameInput,
+.backgroundSelector,
+#displayCaptainDiv,
+#chooseOneDiv,
+#chooseTwoDiv,
+#chooseCorePowers,
+#chooseGeneralPowers {
+  color: rgb(198, 10, 10);
+  margin-left: 24%;
 }
 
-#captainNameSubmitButton, #captainBackgroundSubmitButton, button  {
+#captainNameSubmitButton,
+#captainBackgroundSubmitButton,
+button {
   background-color: rgb(132, 3, 3);
 }
 
@@ -309,60 +418,62 @@ margin-left: 24%;
 .Cardback {
   background-color: black;
   width: 450px;
-margin-left: 450px;
-border-radius: 24px;
-text-align: left;
-background-image: url(../../);
-opacity: 0.7;
+  margin-left: 450px;
+  border-radius: 24px;
+  text-align: left;
+  background-image: url(../../);
+  opacity: 0.7;
 }
+
 #backgroundDiv {
   background-color: black;
- width: 350px;
-border-radius: 24px;
-padding-left: 96px;
-margin-left: 24%;
-opacity: 0.7;
-color: rgb(198, 10, 10);
+  width: 350px;
+  border-radius: 24px;
+  padding-left: 96px;
+  margin-left: 24%;
+  opacity: 0.7;
+  color: rgb(252, 252, 252);
 
 }
 
 .Cardback1 {
   background-color: black;
- width: 350px;
-border-radius: 24px;
-padding-left: 96px;
-margin-left: 250px;
-opacity: 0.7;
+  width: 350px;
+  border-radius: 24px;
+  padding-left: 96px;
+  margin-left: 250px;
+  opacity: 0.7;
 
 }
+
 .Cardback2 {
   background-color: black;
- width: 345px;
-border-radius: 24px;
-padding-left: 96px;
-margin-top: 12px;
-padding-top: 12px;
-padding-bottom: 20px;
-opacity: 0.8;
-
+  width: 345px;
+  border-radius: 24px;
+  padding-left: 175px;
+  margin-top: 12px;
+  padding-top: 12px;
+  padding-bottom: 20px;
+  opacity: 0.8;
 }
 
 .Cardback3 {
   background-color: black;
   width: 450px;
-margin-left: 450px;
-border-radius: 24px;
-text-align: left;
-padding-bottom: 20px;
-opacity: 0.7;
+  margin-left: 450px;
+  border-radius: 24px;
+  text-align: left;
+  padding-bottom: 20px;
+  opacity: 0.7;
 }
 
 .captNameForm {
   background-color: black;
   width: 450px;
-margin-left: 24%;
-border-radius: 24px;
-text-align: left;
-padding-bottom: 20px;
-opacity: 0.7;
+  margin: 0 auto;
+  margin-top: 200px;
+  border-radius: 24px;
+  text-align: left;
+  padding-bottom: 20px;
+  opacity: 0.7;
 }
