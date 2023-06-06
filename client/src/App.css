@@ -33,7 +33,6 @@
 body {
   margin: 0;
   padding: 0;
-
   font-family: 'Voltaire', sans-serif;
 }
 
@@ -44,6 +43,7 @@ body {
 .container-main {
   margin-top: -21px;
   height: 800px;
+  background-color: var(--accent-color);
 }
 
 .container {
@@ -72,12 +72,6 @@ body {
   width: 100%;
 }
 
-/* header {
-  display: flex;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-} */
-
 
 .header {
   background-color: var(--secondary-color);
@@ -98,7 +92,7 @@ header p {
   padding: 10px;
 }
 
-/* Signup page */
+/* Signup/login page */
 
 
 .card {
@@ -210,12 +204,12 @@ label {
 }
 
 footer {
+  position: fixed;
+  bottom:100%;
   background-color: var(--secondary-color);
   color: #fff;
-  margin-top: auto;
+  margin-top: 50%;
   height: auto;
-  left: 0;
-  bottom: 0;
   width: 100%;
 }
 
@@ -389,10 +383,10 @@ footer {
 }
 
 .creation {
-  background-image: url(../../assets/cold.webp);
+  background-color: var(--accent-color);
   background-blend-mode: hard-light;
-  background-color: rgb(246, 44, 8);
-  height: 100%;
+  height: 10000;
+  margin-bottom:20%;
 }
 
 #displayCaptainDiv,
@@ -403,14 +397,14 @@ footer {
 #chooseTwoDiv,
 #chooseCorePowers,
 #chooseGeneralPowers {
-  color: rgb(198, 10, 10);
+  color: rgb(255, 255, 255);
   margin-left: 24%;
 }
 
 #captainNameSubmitButton,
 #captainBackgroundSubmitButton,
 button {
-  background-color: rgb(132, 3, 3);
+  background-color: rgb(255, 255, 255);
 }
 
 
@@ -447,7 +441,7 @@ button {
 }
 
 .Cardback2 {
-  background-color: black;
+
   width: 345px;
   border-radius: 24px;
   padding-left: 175px;
@@ -468,10 +462,8 @@ button {
 }
 
 .captNameForm {
-  background-color: black;
   width: 450px;
   margin: 0 auto;
-  margin-top: 200px;
   border-radius: 24px;
   text-align: left;
   padding-bottom: 20px;

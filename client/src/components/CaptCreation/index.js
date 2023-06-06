@@ -66,7 +66,7 @@ let generalPowers = []
 const captainNameFunc = () => {
 
 let displayCaptainDiv = document.getElementById('displayCaptainDiv')
-displayCaptainDiv.textContent=''
+displayCaptainDiv.innerHTML=''
     
     //Grabs the input
     let cptNameUserInput = document.getElementById('captainNameInput')  
@@ -759,7 +759,7 @@ const CaptCreation = () => {
         <div className="Cardback2" id='displayCaptainDiv'></div>
         
         <div className = "captNameForm" id='captNameForm'>
-          <p style={{marginLeft:"26%", padding: "5%", color:"rgb(255,255,255)"}}>Name your Captain:</p>
+          <p style={{marginLeft:"2%", padding: "5%", color:"rgb(255,255,255)"}}>Name your Captain:</p>
           <input id = 'captainNameInput' type = 'text'></input>
           <button
           id = 'captainNameSubmitButton'
