@@ -3,7 +3,7 @@
   "short_name": "Cap Quarters",
   "theme_color": "#001827",
   "background_color": "#001827",
-  "display": "browser",
+  "display": "fullscreen",
   "scope": "/",
   "start_url": "/",
   "icons": [
