@@ -38,9 +38,9 @@ const Header = () => {
           <p className="m-0">An easy start-up for Stargrave.</p>
         </div>
         <div className="header-right">
-          <Link to="/Credits" className="btn btn-primary">
+          {/* <Link to="/Credits" className="btn btn-primary">
             Credits page
-          </Link>
+          </Link> */}
           {Auth.loggedIn() ? (
             <>
               <Link className="btn btn-lg btn-info m-2" to="/me">
