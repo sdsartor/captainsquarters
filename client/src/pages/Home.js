@@ -15,8 +15,11 @@ const Home = () => {
           <Link to="/CaptCreation" className="btn btn-primary">
           Create Captain
         </Link>
+        
       </main>
     );
   };
   
   export default Home;
+
+  // <button className="btn btn-primary" id="buttonInstall">Install</button>
