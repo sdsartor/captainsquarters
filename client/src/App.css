@@ -11,21 +11,22 @@
 .main {
   min-height: 100vh;
 }
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .header-left {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  left:1%;
+  margin: 1%;
 }
 
 .header-right {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
+
+
 
 body {
   margin: 0; 
@@ -39,24 +40,49 @@ body {
 
 .container {
 
-   margin-top: -20px; 
+   margin-top: -21px; 
 
 }
 
-header {
+.bg-primary{
+  display:flex;
+  flex-wrap: wrap;
   background-color: var(--secondary-color);
   color: var(--primary-color);
-  padding: 10px;
+  align-items: center;
+}
+.flex-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  width: 100%;
+}
+/* header {
+  display: flex;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+} */
+
+
+.header{
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  margin: 1%;
+  width:80%;
 }
 
 header h1 {
-  font-size: 24px;
-  margin: 0;
+  color: var(--primary-color);
+  font-size: 36px;
 }
 
 header p {
   font-size: 14px;
-  margin: 0;
+  padding:10px;
 }
 
 .btn {
@@ -86,13 +112,16 @@ header p {
 footer {
   background-color: var(--secondary-color);
   color: #fff;
-  padding: 20px;
   margin-top: auto;
   left: 0;
   bottom: 0;
   width: 100%;
 }
 
+.footer-content {
+  display: flex;
+  align-items: flex-start;
+}
 
 .footer {
   flex-shrink: 0;
@@ -263,6 +292,7 @@ margin-top: 200px;
   background-image: url(../../assets/cold.webp);
   background-blend-mode:hard-light;
   background-color: rgb(246, 44, 8);
+  height: 600px;
 }
 
 #displayCaptainDiv, #captainNameInput, .backgroundSelector, #displayCaptainDiv, #chooseOneDiv, #chooseTwoDiv, #chooseCorePowers, #chooseGeneralPowers {

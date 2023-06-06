@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
@@ -8,19 +8,39 @@ const Header = () => {
     Auth.logout();
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      if (viewportWidth < 730 || viewportHeight < 720) {
+        document.querySelector('.bg-primary').classList.add('flex-wrapper');
+      } else {
+        document.querySelector('.bg-primary').classList.remove('flex-wrapper');
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <header className="bg-primary">
-      <div className="ui header">
+      <div className="header">
         <div className="header-left">
           <Link className="text-light" to="/">
             <h1 className="m-0">Captains Quarters</h1>
           </Link>
           <p className="m-0">An easy start-up for Stargrave.</p>
         </div>
-        <Link to="/Credits" className="btn btn-primary">
-          Credits page
-        </Link>
         <div className="header-right">
+          <Link to="/Credits" className="btn btn-primary">
+            Credits page
+          </Link>
           {Auth.loggedIn() ? (
             <>
               <Link className="btn btn-lg btn-info m-2" to="/me">
