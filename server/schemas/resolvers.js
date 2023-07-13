@@ -49,13 +49,13 @@ const resolvers = {
 
             },
 
-        createCaptain: async (parent, { name, background, firstMate, crewMembers, createdBy }, context) => {
+        createCaptain: async (parent, { name, background, Firstmate, crewChoice, createdBy }, context) => {
             if (context.user) {
                 const captain = Captain.create({
                     name,
-                    background,
-                    firstMate,
-                    crewMembers,
+                    Background,
+                    FirstMate,
+                    CrewChoice,
                     createdBy
                 });
 

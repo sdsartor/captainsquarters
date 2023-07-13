@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const firstmateSchema =  new Schema({
+const firstMateSchema =  new Schema({
         name: {
             type: String,
         },
@@ -16,6 +16,6 @@ const firstmateSchema =  new Schema({
     }
 );    
 
-const FirstMate = model('FirstMate', firstmateSchema);
+const FirstMate = model('FirstMate', firstMateSchema);
 
 module.exports = FirstMate;
